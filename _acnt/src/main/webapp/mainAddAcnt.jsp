@@ -348,12 +348,12 @@
 							out.print("<td id='nextMonthDate'>"+i+"</td>");
 						}
 					}
-					if(count > 35){
+					/*if(count > 35){
 						int sub = 42 - count;
 						for(int i = 1; i <= sub; i++){
 							out.print("<td id='nextMonthDate'>"+i+"</td>");
 						}
-					}
+					}*/
 				%>
 			</tr>
 		</tbody>
