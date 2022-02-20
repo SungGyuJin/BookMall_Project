@@ -359,8 +359,6 @@
 							out.print("<td id='nextMonthDate'>"+i+"</td>");
 						}
 					}
-					
-					out.print("막날"+lastDate);
 				%>
 			</tr>
 		</tbody>
