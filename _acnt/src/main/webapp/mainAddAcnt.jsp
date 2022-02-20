@@ -280,9 +280,9 @@
 						}
 				%>
 					<td valign="top" align="center" id="sat" onClick="location.href='mainAddAcnt.jsp?year=<%= year %>&month=<%= month %>&param=<%= day%>'">
-						<br><%= day %><br>
+						<br><br><%= day %><br>
 						<span id="addMon"><%= addMon %></span><br>
-						<span id="subMon"><%= subMon %></span>
+						<span id="subMon"><%= subMon %></span><br><br>
 					</td>
 				<%		
 					}else if(count % 7 == 1){
@@ -305,9 +305,9 @@
 						}
 				%>
 					<td valign="top" align="center" id="sun" onClick="location.href='mainAddAcnt.jsp?year=<%= year %>&month=<%= month %>&param=<%= day%>'">
-						<br><%= day %><br>
+						<br><br><%= day %><br>
 						<span id="addMon"><%= addMon %></span><br>
-						<span id="subMon"><%= subMon %></span>
+						<span id="subMon"><%= subMon %></span><br><br>
 					</td>
 				<%
 					}else{ // 평일
@@ -331,9 +331,9 @@
 						}
 				%>
 					<td valign="top" align="center" id="basic_td" onClick="location.href='mainAddAcnt.jsp?year=<%= year %>&month=<%= month %>&param=<%= day%>'">
-						<br><%= day %><br>
+						<br><br><%= day %><br>
 						<span id="addMon"><%= addMon %></span><br>
-						<span id="subMon"><%= subMon %></span>
+						<span id="subMon"><%= subMon %></span><br><br>
 					</td>
 				<%			
 					}
