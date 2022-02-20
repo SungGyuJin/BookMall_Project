@@ -198,11 +198,6 @@
 <jsp:include page="header.jsp" />
 <jsp:include page="cntHeader.jsp" />
 <jsp:include page="theList.jsp" />
-<%
-	out.print(year+"<br>");
-	out.print(month+"<br>");
-	out.print(dat+"<br>");
-%>
 	<input type="text" id="da" value="<%=dat%>">
 	<table align="center">
 		<tr>
