@@ -8,6 +8,7 @@
 <%@page import="java.util.Calendar"%>
 <%
 //달력 객체생성
+	out.print("테스트 커밋");
 	Calendar ca = Calendar.getInstance();
 	//클릭한 날짜 파라미터 값
 	String dat = request.getParameter("param");
