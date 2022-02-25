@@ -10,7 +10,7 @@
 	<properties>
 		<java-version>1.6</java-version>
 		<!-- @@ Update / before : 3.1.1 -->
-		<org.springframework-version>5.0.7.RELEASE</org.springframework-version>
+		<org.springframework-version>5.2.7.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
@@ -62,7 +62,8 @@
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
-			<version>1.2.15</version>
+			<version>1.2.17</version>
+			<!-- 
 			<exclusions>
 				<exclusion>
 					<groupId>javax.mail</groupId>
@@ -81,7 +82,8 @@
 					<artifactId>jmxri</artifactId>
 				</exclusion>
 			</exclusions>
-			<scope>runtime</scope>
+			-->
+		<!-- 	<scope>runtime<!scope> -->
 		</dependency>
 
 		<!-- @Inject -->
@@ -96,7 +98,7 @@
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<!-- @@ Update / before : 2.5 -->
-			<version>3.1.0</version>
+			<version>4.0.1</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
@@ -166,7 +168,7 @@
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
-			<version>1.18.0</version>
+			<version>1.18.16</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
@@ -197,6 +199,15 @@
                     <showWarnings>true</showWarnings>
                     <showDeprecation>true</showDeprecation>
                 </configuration>
+            </plugin>
+            <!-- @@ web.xml을 사용하지 않겠다는 설정 -->
+            <plugin>
+            	<groupId>org.apache.maven.plugins</groupId>
+            	<artifactId>maven-war-plugin</artifactId>
+            	<version>3.2.0</version>
+            	<configuration>
+            		<failOnMissingWebXml>false</failOnMissingWebXml>
+            	</configuration>
             </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
