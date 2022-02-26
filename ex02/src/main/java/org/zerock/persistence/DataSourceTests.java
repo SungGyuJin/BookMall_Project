@@ -23,9 +23,12 @@ public class DataSourceTests {
 	private DataSource dataSource;
 			
 	public void testConnection() {
+		
 		try(Connection con = dataSource.getConnection()){
+			System.out.println(con);
 			log.info(con);
-		}catch(Exception e){
+			System.out.println("ex02 DataSourceTests");
+		}catch(Exception e){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 			fail(e.getMessage());
 		}
 	}

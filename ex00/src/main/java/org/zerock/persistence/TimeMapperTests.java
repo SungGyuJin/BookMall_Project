@@ -20,8 +20,7 @@ public class TimeMapperTests {
 	@Setter(onMethod_ = @Autowired)
 	private TimeMapper timeMapper;
 	
-	@Test
-	public void testGetTime() {
+	@Test	public void testGetTime() {
 		log.info(timeMapper.getClass().getName());
 		log.info(timeMapper.getTime());
 	}

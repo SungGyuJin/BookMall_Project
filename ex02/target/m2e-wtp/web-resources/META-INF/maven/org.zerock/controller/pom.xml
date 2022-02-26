@@ -10,7 +10,7 @@
 	<properties>
 		<java-version>1.6</java-version>
 		<!-- @@ Update / before : 3.1.1 -->
-		<org.springframework-version>5.2.7.RELEASE</org.springframework-version>
+		<org.springframework-version>5.0.7.RELEASE</org.springframework-version>
 		<org.aspectj-version>1.6.10</org.aspectj-version>
 		<org.slf4j-version>1.6.6</org.slf4j-version>
 	</properties>
@@ -142,7 +142,8 @@
 		<dependency>
 			<groupId>com.zaxxer</groupId>
 			<artifactId>HikariCP</artifactId>
-			<version>2.7.8</version>
+		<!-- 	<version>2.7.8</version> -->
+			<version>4.0.3</version>
 		</dependency>
 		<!-- @@ Create lib : Mybatis -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis -->
@@ -200,7 +201,7 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
-            <!-- @@ web.xml을 사용하지 않겠다는 설정 -->
+            <!-- @@ web.xml을 사용하지 않겠다는 설정 
             <plugin>
             	<groupId>org.apache.maven.plugins</groupId>
             	<artifactId>maven-war-plugin</artifactId>
@@ -209,6 +210,7 @@
             		<failOnMissingWebXml>false</failOnMissingWebXml>
             	</configuration>
             </plugin>
+            -->
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
