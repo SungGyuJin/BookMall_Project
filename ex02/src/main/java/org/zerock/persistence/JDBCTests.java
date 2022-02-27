@@ -27,7 +27,7 @@ public class JDBCTests {
 					"1234")){
 			
 		log.info(con);
-		System.out.println("Oracle 연결성공 ex02");
+		System.out.println("Oracle Test 성공 ex02");
 		}catch (Exception e) {
 		}
 	}

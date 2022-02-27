@@ -19,6 +19,7 @@ import lombok.extern.log4j.Log4j;
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
 @Log4j
 public class DataSourceTests {
+	
 	@Setter(onMethod_ = { @Autowired })
 	private DataSource dataSource;
 
@@ -27,7 +28,7 @@ public class DataSourceTests {
 
 		try (Connection con = dataSource.getConnection()) {
 			log.info(con);
-			System.out.println("ex01 DataSourceTests");
+			System.out.println("ex00 DataSource 성공");
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}
