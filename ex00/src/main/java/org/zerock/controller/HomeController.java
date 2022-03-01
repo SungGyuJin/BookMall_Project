@@ -36,11 +36,5 @@ public class HomeController {
 		return "home";
 	}
 	
-	@RequestMapping("/board/list")
-	public String list() {
-		
-		
-		return "/board/list";
-	}
 	
 }

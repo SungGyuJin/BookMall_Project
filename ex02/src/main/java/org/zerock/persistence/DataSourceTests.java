@@ -22,10 +22,9 @@ public class DataSourceTests {
 	
 	@Setter(onMethod_ = {@Autowired})
 	private DataSource dataSource;
-	
 	@Test
-	public void testConnection() {
-		
+	public void testConnection() { 
+
 		try(Connection con = dataSource.getConnection()){
 			log.info(con);
 			System.out.println("DataSourceTests Test 성공 ex02");
