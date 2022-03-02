@@ -28,6 +28,7 @@ public class BoardController {
 		model.addAttribute("list", service.getList());
 	}
 	
+	
 	//	@PostMapping("/register")
 //	public String register(BoardVO board, RedirectAttributes rttr) {
 //
