@@ -1,8 +1,7 @@
 package org.zerock.persistence;
 
 
-
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.Assert.fail;
 
 import java.sql.Connection;
 
@@ -29,7 +28,7 @@ public class DataSourceTests {
 
 		try(Connection con = dataSource.getConnection()){
 			log.info(con);
-			System.out.println("DataSourceTests Test 성공 ex02");
+			System.out.println("DataSourceTests Test 성공 ex03");
 		}catch(Exception e){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 			fail(e.getMessage());
 		}
