@@ -27,7 +27,7 @@ public class JDBCTests {
 					"1234")){
 			
 		log.info(con);
-		System.out.println("Oracle Test ì„±ê³µ ex02");
+		System.out.println("Oracle Test ¼º°ø02");
 		}catch (Exception e) {
 		}
 	}

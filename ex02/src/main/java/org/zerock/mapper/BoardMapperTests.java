@@ -23,7 +23,7 @@ public class BoardMapperTests {
 	public void testGetList() {
 		mapper.getList().forEach(board -> log.info(board));
 	}
-
+	
 	@Test
 	public void testInsert() {
 		BoardVO board = new BoardVO();

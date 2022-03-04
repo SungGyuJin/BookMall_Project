@@ -21,24 +21,24 @@ public class BoardServiceTests {
 
 	@Test
 	public void testExist() {
-		
+
 		log.info(service);
 		assertNotNull(service);
 	}
-	
+
 	@Test
 	public void testRegister() {
-		
+
 		BoardVO board = new BoardVO();
-		board.setTitle("ìƒˆë¡œ ìž‘ì„±í•˜ëŠ” ê¸€");
-		board.setContent("ìƒˆë¡œ ìž‘ì„±í•˜ëŠ” ë‚´ìš©");
+		board.setTitle("»õ·Î ÀÛ¼ºÇÏ´Â ±Û");
+		board.setContent("»õ·Î ÀÛ¼ºÇÏ´Â ³»¿ë");
 		board.setWriter("newbie");
-		
+
 		service.register(board);
-		
-		log.info("ìƒì„±ëœ ê²Œì‹œë¬¼ì˜ ë²ˆí˜¸" + board.getBno());
+
+		log.info("»ý¼ºµÈ °Ô½Ã¹°ÀÇ ¹øÈ£" + board.getBno());
 	}
-	
+
 	@Test
 	public void testGetList() {
 		service.getList().forEach(board -> log.info(board));
@@ -66,7 +66,7 @@ public class BoardServiceTests {
 			return;
 		}
 
-		board.setTitle("ì œëª© ìˆ˜ì •í•©ë‹ˆë‹¤.");
+		board.setTitle("Á¦¸ñ ¼öÁ¤ÇÕ´Ï´Ù.");
 		log.info("MODIFY RESULT: " + service.modify(board));
 	}
 

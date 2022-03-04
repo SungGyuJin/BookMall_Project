@@ -29,7 +29,7 @@ public class DataSourceTests {
 
 		try(Connection con = dataSource.getConnection()){
 			log.info(con);
-			System.out.println("DataSourceTests Test ì„±ê³µ ex02");
+			System.out.println("DataSourceTests Test ¼º°ø ex02");
 		}catch(Exception e){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       
 			fail(e.getMessage());
 		}
