@@ -32,7 +32,7 @@
                                 
                                 <c:forEach items="${list }" var="board">
 									<tr>
-										<td><c:out value="${board.bno }" /></td>
+										<td><a href="register"><c:out value="${board.bno }" /></a></td>
 										<td><c:out value="${board.title }" /></td>
 										<td><c:out value="${board.writer }" /></td>
 										<td><fmt:formatDate pattern="yyyy-MM-dd"
@@ -41,7 +41,7 @@
 											value="${board.updateDate }" /></td>
 									</tr>                                
                                 </c:forEach>
-                            </table>
+                            </table> <!-- end table -->
                         </div>
                         <!-- end panel-body -->
                     </div>
@@ -50,3 +50,11 @@
             </div>
             <!-- /.row -->
 <%@ include file="../includes/footer.jsp" %>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	var result = '<c:out value="${result}"/>';
+}
+
+</script>
