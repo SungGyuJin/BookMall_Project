@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<%@ include file="../includes/header.jsp" %>
+<%@include file="../includes/header.jsp" %>
 
             <div class="row">
                 <div class="col-lg-12">
@@ -19,7 +19,7 @@
                         <div class="panel-heading">Board List Page</div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
-                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                            <table class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
                                     	<th>#번호</th>
@@ -45,7 +45,7 @@
                             
                             <!-- Modal 추가 -->
                             <div class="modal fade" id="myModal" tabindex="-1" role="dilog"
-                            	aria-labelledby="myModaLabel" aria-hidden="true">
+                            	aria-labelledby="myModalLabel" aria-hidden="true">
                             	<div class="modal-dialog">
                             		<div class="modal-content">
                             			<div class="modal-header">
@@ -61,16 +61,14 @@
                             		</div> <!-- end modal-content -->
                             	</div>	<!-- end modal-dialog -->
                             </div> <!-- end modal -->
-                        </div>
-                        <!-- end panel-body -->
-                    </div>
-                    <!-- end panel -->
-                </div>
-            </div>
-            <!-- /.row -->
-<%@ include file="../includes/footer.jsp" %>
+                        </div> <!-- end panel-body -->
+                    </div> <!-- end panel -->
+                </div> <!-- end col -->
+            </div> <!-- end row -->
+<%@include file="../includes/footer.jsp" %>
 
 <script type="text/javascript">
+
 $(document).ready(function(){
 	
 	var result = '<c:out value="${result}"/>';
@@ -83,7 +81,7 @@ $(document).ready(function(){
 			return;
 		}
 		if (parseInt(result) > 0){
-			$(".modal-body").html("게시글"+parseInt(result))+"번이 등록되었습니다.");
+			$(".modal-body").html("게시글 " + parseInt(result)) + "번이 등록되었습니다.");
 		}
 		
 		$("#myModal").modal("show");
