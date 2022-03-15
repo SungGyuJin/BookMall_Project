@@ -5,6 +5,7 @@
 
 <%@include file="../includes/header.jsp" %>
 
+
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="page-header">Tables</h1>
@@ -67,11 +68,15 @@
                     </div> <!-- end panel -->
                 </div> <!-- end col -->
             </div> <!-- end row -->
-<%@include file="../includes/footer.jsp" %>
 
 <script type="text/javascript">
 
 $(document).ready(function(){
+	
+	// 이벤트 : a tag를 클릭했을 때, 자신의 텍스트를 alert
+	// $("a").click(function () {
+	//	alert($(this).text());
+	//})
 	
 	var result = '<c:out value="${result}"/>';
 	
@@ -83,7 +88,7 @@ $(document).ready(function(){
 			return;
 		}
 		if (parseInt(result) > 0){
-			$(".modal-body").html("게시글 " + parseInt(result)) + "번이 등록되었습니다.");
+			$(".modal-body").html("게시글 " + parseInt(result) + "번이 등록되었습니다.");
 		}
 		
 		$("#myModal").modal("show");
@@ -98,3 +103,5 @@ $(document).ready(function(){
 
 
 </script>
+
+<%@include file="../includes/footer.jsp" %>
