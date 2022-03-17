@@ -39,8 +39,14 @@
 					<input class="form-control" name="writer" value='<c:out value="${board.writer }" />' readonly="readonly">
 					</div>
 					
-					<button data-oper="modify" class="btn btn-default">Modify</button>
-					<button data-oper="list" class="btn btn-info">List</button>
+					<button data-oper="modify"
+						class="btn btn-default"
+						onClick="location.href='/board/modify?bno=<c:out value="${board.bno }"/>'">Modify
+					</button>
+					<button data-oper="list"
+						class="btn btn-info"
+						onClick="location.href='/board/list'">List
+					</button>
 					
 				</div> <!-- end panel-body -->
 		</div> <!-- end panel -->
