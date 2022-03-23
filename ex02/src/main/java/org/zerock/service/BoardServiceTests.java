@@ -26,7 +26,7 @@ public class BoardServiceTests {
 		log.info(service);
 		assertNotNull(service);
 	}
-
+	
 	@Test
 	public void testRegister() {
 
