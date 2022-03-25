@@ -81,7 +81,6 @@ public class BoardControllerTests {
 			.getModelAndView().getModelMap());
 	}
 	
-	
 	@Test
 	public void testModify() throws Exception {
 		
@@ -100,7 +99,7 @@ public class BoardControllerTests {
 	public void testRemove() throws Exception {
 		// 삭제전 DB에 게시물 번호 확인하기
 		String resultPage = mockMvc.perform(MockMvcRequestBuilders.post("/board/remove")
-				.param("bno", "146")
+				.param("bno", "662")
 				).andReturn().getModelAndView().getViewName();
 		
 		log.info(resultPage);
