@@ -14,13 +14,13 @@
 		<input type='hidden' name='amount' value='<c:out value="${cri.amount }"/>'>
 	
 		<div class="form-group">
-			<label>Bno</label> <input class="form-control" name="bno"
-				value='<c:out value="${board.bno }"/>' readonly="readonly">
+			<label>Bno</label> 
+			<input class="form-control" name="bno" value='<c:out value="${board.bno }"/>' readonly="readonly">
 		</div>
 	
 		<div class="form-group">
-			<label>Title</label> <input class="form-control" name="title"
-				value='<c:out value="${board.title }"/>'>
+			<label>Title</label>
+			<input class="form-control" name="title" value='<c:out value="${board.title }"/>'>
 		</div>
 	
 		<div class="form-group">
@@ -35,13 +35,15 @@
 		</div>
 	
 		<div class="form-group">
-			<label>RegDate</label> <input class="form-control" name="regDate"
+			<label>RegDate</label>
+			<input class="form-control" name="regDate"
 				value='<fmt:formatDate pattern = "yyyy/MM/dd" value = "${board.regdate }" />'
 				readonly="readonly">
 		</div>
 	
 		<div class="form-group">
-			<label>Update</label> <input class="form-control" name="updateDate"
+			<label>Update</label>
+			<input class="form-control" name="updateDate"
 				value='<fmt:formatDate pattern = "yyyy/MM/dd" value = "${board.updateDate }" />'
 				readonly="readonly">
 		</div>
@@ -78,7 +80,7 @@
 				  	formOjb.append(amountTag);
 				}
 				formObj.submit();
-			)};
+			});
 		});
 	</script>
 <%@ include file="../includes/footer.jsp"%>

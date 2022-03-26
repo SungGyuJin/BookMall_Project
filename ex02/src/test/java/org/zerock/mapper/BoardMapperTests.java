@@ -22,6 +22,17 @@ public class BoardMapperTests {
 
 	@Setter(onMethod_ = @Autowired)
 	private BoardMapper mapper;
+	
+	public void testSearch() {
+		
+		Criteria cri = new Criteria();
+		cri.setKeyword("새로");
+		cri.setType("TC");
+		
+		List<BoardVO> list = mapper.getListWithPaging(cri);
+		
+		list.forEach(board -> log.info(board));
+	}
 
 //	@Test
 //	public void testGetList() {
@@ -41,7 +52,7 @@ public class BoardMapperTests {
 //		list.forEach(board -> log.info(board.getBno()));
 //
 //	}
-//
+//          
 //	@Test
 //	public void testInsert() {
 //		BoardVO board = new BoardVO();
@@ -76,9 +87,10 @@ public class BoardMapperTests {
 //		log.info("UPDATE COUNT: " + count);
 //
 //	}
-
-	@Test
-	public void testDelete() {
-		log.info("DELETE COUNT: " + mapper.delete(682L));
-	}
+//
+//	@Test
+//	public void testDelete() {
+//		log.info("DELETE COUNT: " + mapper.delete(682L));
+//	}
+	
 }
