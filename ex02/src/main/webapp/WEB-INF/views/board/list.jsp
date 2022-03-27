@@ -148,12 +148,12 @@
 		checkModal(result);
 
 		history.replaceState({}, null, null);
-
+ 
 		function checkModal(result) {
 
 			if (result === '' || history.state) {
 				return;
-			}
+			} 
 			if (parseInt(result) > 0) {
 				
 				$(".modal-body").html(
@@ -188,6 +188,26 @@
 		$(this).attr("href")+"'>");
 			actionForm.attr("action","/board/get");
 			actionForm.submit();
+		});
+		
+		var searchForm = $("searcgForm");
+		
+		$("#searchFrom button").on("click", function(e){
+			
+			if(!searchForm.find("option:selected").val()){
+				alert("검색종류를 선택하세요");
+				return false;
+			}
+			
+			if(!searchFrom.find("input[name='keryword']").val()){
+				alert("키워들르 입력하세요");
+				return false;
+			}
+			
+			searchFrom.find("input[name='pageNum']").val("1");
+			e.preventDefault();
+			
+			serachFrom.submit();
 		});
 		
 	});
