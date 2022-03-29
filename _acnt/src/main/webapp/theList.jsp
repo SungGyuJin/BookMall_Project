@@ -38,6 +38,14 @@
 	.td{
 		text-align: center;
 	}
+	#theListTable{
+		width: 50%;
+		text-align: center;
+	}
+	#separation{
+		background-color: rgb(072, 209, 204);
+		color: black;
+	}
 </style>
 </head>
 <body>
@@ -50,7 +58,7 @@
 	<input type="text" name="year" value="<%= yearParam%>">
 	<input type="text" name="month" value="<%= monthParam%>">
 	<input type="text" name="dat" value="<%= dateParam%>">
-		<table border="1" align="center">
+		<table id="theListTable" class="table table-dark" align="center">
 			<tr>
 				<td class="td" colspan="4"><%= yearParam %>년<%= monthParam %>월<%= dateParam %>일 거래내역</td>
 			</tr>
@@ -62,10 +70,16 @@
 			</tr>
 		<%
 			while(rs.next()){
+				String kind = "";
+				if(rs.getString("kind").equals("+")){
+					kind = "➕";
+				}else{
+					kind = "➖";
+				}
 		%>
 				<tr>
 					<td class="td" ><input type="checkbox" name="chkItem" value="<%= rs.getString("regNum") %>"></td>
-					<td class="td" ><%= rs.getString("kind") %></td>
+					<td id="separation" class="td" ><%= kind %></td>
 					<td class="td" ><%= rs.getString("item") %></td>
 					<td class="td" ><%= rs.getString("price") %>원</td>
 				</tr>

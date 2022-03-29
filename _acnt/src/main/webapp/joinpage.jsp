@@ -14,12 +14,14 @@
 		background-image: url("money.jpg");
 		background-size: cover;
 	}
-	table{
-		width: 400px;
+	#joinTable{
+		margin: auto;
+		width: 200px;
+		height: 300px;
 		font-size: x-large;
 		text-align: center;
 		background-color: white;
-		margin-top: 50px;
+		margin-top: 100px;
 	}
 	input{
 		width: 200px;
@@ -28,11 +30,12 @@
 		border: none;
 	}
 </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 	
 	<form action="joinChk" method="post">
-		<table align="center" border=30">
+		<table id="joinTable" class="table table-dark table-striped" align="center">
 		<thead>
 			<tr>
 				<td colspan="2"><h1 align="center">JOIN</h1></td>

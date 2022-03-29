@@ -6,6 +6,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@page import="java.util.Calendar"%>
+<%@include file="../includes/header.jsp"%>
+<jsp:include page="cntHeader.jsp" />
+<jsp:include page="theList.jsp" />
+
 <%
 //달력 객체생성
 	Calendar ca = Calendar.getInstance();
@@ -69,7 +73,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>_acnt</title>
 <style>
 	#table_1{
 		margin: auto;
@@ -79,12 +83,10 @@
 		background-color: white;
 	}
 	#table_2{
-		width: 100%;
-		height: 600px;
+		width: 70%;
+		height: 100%;
 		text-align: center;
 		font-size: x-large;
-		float: left;
-		margin-right: 100px;
 		background-color: white;
 	}
 	#table_3{
@@ -134,14 +136,13 @@
 		font-size: 20px;
 		font-style: italic;
 		width: 100px;
-		height: 100px;
+		height: 140px;
 	}
 	#nextMonthDate{
 		font-size: 20px;
 		font-style: italic;
 		color: grey;
 		width: 100px;
-		height: 100px;
 	}
 	
 	a{text-decoration: none; color: #646464;}
@@ -195,9 +196,6 @@
 </style>
 </head>
 <body>
-<jsp:include page="header.jsp" />
-<jsp:include page="cntHeader.jsp" />
-<jsp:include page="theList.jsp" />
 <%
 	out.print(year+"<br>");
 	out.print(month+"<br>");
@@ -214,19 +212,26 @@
 		</tr>	
 	</table>
 	
-	<table id="table_1">
+	<table id="table_1" class="table table-striped" border="1">
 		<thead>
 			<tr>
+			<!--  
 				<td style="background-color: rgb(238, 130, 238);"><a href="mainAddAcnt.jsp?&year=<%=year - 1%>">◀</a></td>
 				<td style="background-color: rgb(255, 250, 147);"><a style="color: black; font-style: italic;" href="mainAddAcnt.jsp?&year=<%=year%>&month=<%=month - 1%>">이전달</a></td>
 				<td style="background-color: orange;"><a style="color: black; font-style: italic; font-size: 20px;" href="mainAddAcnt.jsp?&param=<%=today%>"><span><%=year%>&nbsp;/&nbsp;<%=month + 1%></span></a></td>
 				<td style="background-color: rgb(255, 250, 147);"><a style="color: black; font-style: italic;" href="mainAddAcnt.jsp?&year=<%=year%>&month=<%=month + 1%>">다음달</a></td>
 				<td style="background-color: rgb(238, 130, 238);"><a href="mainAddAcnt.jsp?&year=<%=year + 1%>">▶</a></td>
+			-->
+				<td><a href="mainAddAcnt.jsp?&year=<%=year - 1%>">◀</a></td>
+				<td><a style="color: black; font-style: italic;" href="mainAddAcnt.jsp?&year=<%=year%>&month=<%=month - 1%>">이전달</a></td>
+				<td><a style="color: black; font-style: italic; font-size: 20px;" href="mainAddAcnt.jsp?&param=<%=today%>"><span><%=year%>&nbsp;/&nbsp;<%=month + 1%></span></a></td>
+				<td><a style="color: black; font-style: italic;" href="mainAddAcnt.jsp?&year=<%=year%>&month=<%=month + 1%>">다음달</a></td>
+				<td><a href="mainAddAcnt.jsp?&year=<%=year + 1%>">▶</a></td>
 		 </tr>
 		</thead>
 	</table>
 	<br>
-	<table id="table_2" border="1">
+	<table id="table_2" class="table table-striped" border="1">
 		<thead>
 			<tr>
 				<th style="color: red; font-size: 20px; font-style: italic;">Sun</th>

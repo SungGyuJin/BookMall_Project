@@ -10,14 +10,14 @@
 		background-image: url("money.jpg");
 		background-size: cover;
 	}
-	table{
-		margin: auto;
-		width: 400px;
-		height: 200px;
+	#formTable{
+		width: 200px;
+		height: 300px;
 		font-size: x-large;
 		text-align: center;
 		background-color: white;
-		margin-top: 50px;
+		margin: auto;
+		margin-top: 100px;
 	}
 	input{
 		width: 200px;
@@ -26,10 +26,11 @@
 		border: none;
 	}
 </style>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 <body>
 <form action="loginPro.jsp" method="post">
-	<table border="30">
+	<table id="formTable" class="table table-dark table-striped">
 		<thead>
 			<tr>
 				<td style="font-style: italic;" align="center" colspan="2"><h1>Save!!</h1></td>

@@ -5,6 +5,7 @@
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="../includes/header.jsp" %>
 <%
 	String item = request.getParameter("item");
 	String sql = "SELECT * FROM acnt WHERE item= ?";
@@ -26,7 +27,6 @@
 		}
 	</style>
 </head>
-<jsp:include page="header.jsp" />
 <body>
 	<h3 align="center">수정</h3>
 	<form action="Edit" method="post">
