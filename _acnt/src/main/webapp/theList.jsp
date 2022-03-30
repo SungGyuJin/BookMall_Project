@@ -39,11 +39,11 @@
 		text-align: center;
 	}
 	#theListTable{
-		width: 50%;
+		width: 30%;
 		text-align: center;
 	}
 	#separation{
-		background-color: rgb(072, 209, 204);
+		background-color: #00CCCC;
 		color: black;
 	}
 </style>
@@ -53,6 +53,7 @@
 	out.println(yearParam);
 	out.println(monthParam);
 	out.println(dateParam);
+	
 %>
 <form action="Del" method="post">
 	<input type="text" name="year" value="<%= yearParam%>">
@@ -60,7 +61,7 @@
 	<input type="text" name="dat" value="<%= dateParam%>">
 		<table id="theListTable" class="table table-dark" align="center">
 			<tr>
-				<td class="td" colspan="4"><%= yearParam %>년<%= monthParam %>월<%= dateParam %>일 거래내역</td>
+				<td class="td" colspan="4"><%= yearParam %>년&nbsp;<%= Integer.parseInt(monthParam)+1 %>월&nbsp;<%= dateParam %>일</td>
 			</tr>
 			<tr>
 				<th>선택</th>
