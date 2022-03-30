@@ -196,12 +196,13 @@
 </style>
 </head>
 <body>
+<input type="button" id="btn_test" value="테스트"/>
 <%
 	out.print(year+"<br>");
 	out.print(month+"<br>");
 	out.print(dat+"<br>");
 %>
-	<input type="text" id="da" value="<%=dat%>">
+	<input type="text" id="btn_test" value="<%=dat%>"><br>
 	<table align="center">
 		<tr>
 			<td>
@@ -371,6 +372,15 @@
 		</tbody>
 	</table>
 <script>
+	$(document).ready(function(){
+		$("#btn_test").on("click", function(e){
+			alert("ㅎㅇㅎㅇㅇㅇ");
+		});
+	});
+
+
+
+
 </script>
 </body>
 </html>
