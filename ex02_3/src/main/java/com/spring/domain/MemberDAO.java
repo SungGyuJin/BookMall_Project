@@ -12,7 +12,7 @@ public class MemberDAO {
 	
 	public void memberInsert(MemberDTO member) {
 		
-		session.insert("com.spring.mapper.MemberMapper.inserMember", member);
+		session.insert("com.spring.mapper.MemberMapper.insertMember", member);
 		
 	}
 }

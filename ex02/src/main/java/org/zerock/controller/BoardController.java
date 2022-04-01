@@ -17,7 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
 @Controller
-@RequestMapping("/board/*")
+@RequestMapping(value = "/board/*")
 @Log4j
 @AllArgsConstructor
 public class BoardController {

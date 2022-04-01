@@ -11,6 +11,5 @@
 	여기는 home.jsp 입니다
 </h1>
 <hr>
-<P> ${save } </P>
 </body>
 </html>

@@ -4,10 +4,12 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	
 <mapper	namespace="com.spring.mapper.MemberMapper">
+
 	<select id="viewAll" resultType="com.spring.domain.MemberDTO">
-		select * from board;
+		select * from userlist
 	</select>
-	
+	 
 	<insert id="insertMember" parameterType="com.spring.domain.MemberDTO">
-	</insert>
+        Insert into userlist(name, id,password) values(#{id}, #{name}, #{password})
+    </insert>
 </mapper>

@@ -22,7 +22,7 @@
 	</beans:bean>
 	
 	<!-- class를 검색하는 기능 -->
-	<context:component-scan base-package="com.springpjt." />
+	<context:component-scan base-package="com.springpjt.controllerMVC" />
 	
 	
 </beans:beans>
