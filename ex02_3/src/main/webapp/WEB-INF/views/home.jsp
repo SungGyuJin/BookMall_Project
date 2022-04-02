@@ -7,9 +7,9 @@
 	<title>Home</title>
 </head>
 <body>
-<h1>
-	여기는 home.jsp 입니다
-</h1>
-<hr>
+	<h1>여기는 home.jsp 입니다</h1>
+	<hr>
+	<h3><a href="/member/index">클릭</a></h3>
+	<hr>
 </body>
 </html>

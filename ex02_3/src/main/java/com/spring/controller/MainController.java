@@ -31,5 +31,11 @@ public class MainController {
 		return "member/test";
 	}
 	
+	@RequestMapping("/member/index")
+	public String headerPage() {
+		
+		return "/member/index";
+	}
+	
 	
 }

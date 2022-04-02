@@ -19,11 +19,11 @@
 				<th>비밀번호</th>
 			</tr>
 		</thead>
-		<c:forEach items="${viewList }" var="nam">
+		<c:forEach items="${viewList }" var="name">
 			<tr>
-				<td><c:out value="${nam.id }" /></td>
-				<td><c:out value="${nam.name }" /></td>
-				<td><c:out value="${nam.password }" /></td>
+				<td><c:out value="${name.id }" /></td>
+				<td><c:out value="${name.name }" /></td>
+				<td><c:out value="${name.password }" /></td>
 			</tr>
 		</c:forEach>
 	</table>	
