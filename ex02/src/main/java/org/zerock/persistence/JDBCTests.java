@@ -1,6 +1,8 @@
 package org.zerock.persistence;
 
 
+import static org.junit.Assert.fail;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -27,8 +29,9 @@ public class JDBCTests {
 					"1234")){
 			
 		log.info(con);
-		System.out.println("Oracle Test ¼º°ø02");
+		System.out.println(con);
 		}catch (Exception e) {
+			fail(e.getMessage());
 		}
 	}
 }

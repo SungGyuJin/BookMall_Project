@@ -22,20 +22,41 @@ public class MainController {
 		return "home";
 	}
 	
-	@RequestMapping("member/test")
-	public String testPage(Model model, MemberDTO dto) {
-		
-		model.addAttribute("viewList", mapper.viewAll());
-		System.out.println("ex02_3 동작완료");
-		
-		return "member/test";
-	}
-	
 	@RequestMapping("/member/index")
 	public String headerPage() {
 		
 		return "/member/index";
 	}
 	
+	// 조회
+	@RequestMapping("member/list")
+	public String list(Model model, MemberDTO dto) {
+		
+		model.addAttribute("viewList", mapper.viewMember());
+		System.out.println("ex02_3 동작완료");
+		
+		return "member/list";	
+	}
+	
+	// 등록
+	@RequestMapping("/member/reg")
+	public String register(MemberDTO dto) {
+		
+		return "/member/reg";
+	}
+	
+	// 수정
+	@RequestMapping("/member/modify")
+	public String modify() {
+		
+		return "/member/modify";
+	}
+	
+	// 삭제
+	@RequestMapping("/member/del")
+	public String del() {
+		
+		return "/member/del";
+	}
 	
 }

@@ -8,9 +8,16 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-
-	header 라인<br/>
+	<br>
+	<input type="button" id="btn_test" value="index Page" /> <br><br>
 	<hr>
-	
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#btn_test").on("click", function(){
+			$(location).attr("href", "/member/index")
+		})
+	})
+</script>
 </body>
 </html>

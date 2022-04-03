@@ -5,11 +5,25 @@
 	
 <mapper	namespace="com.spring.mapper.MemberMapper">
 
-	<select id="viewAll" resultType="com.spring.domain.MemberDTO">
+	<select id="viewMember" resultType="com.spring.domain.MemberDTO">
 		select * from userlist
 	</select>
 	 
+	 
 	<insert id="insertMember" parameterType="com.spring.domain.MemberDTO">
-        Insert into userlist(name, id,password) values(#{id}, #{name}, #{password})
+		insert into 
+		userlist(
+			id,
+			name,
+			password
+		)
+		values(
+			#{id}
+			#{name}
+			#{password}
+		)
+			 
     </insert>
+    
+    
 </mapper>
