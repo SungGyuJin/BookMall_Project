@@ -22,41 +22,41 @@ public class MainController {
 		return "home";
 	}
 	
-	@RequestMapping("/member/index")
+	@RequestMapping("member/index")
 	public String headerPage() {
 		
-		return "/member/index";
+		return "member/index";
 	}
 	
 	// 조회
 	@RequestMapping("member/list")
 	public String list(Model model, MemberDTO dto) {
 		
-		model.addAttribute("viewList", mapper.viewMember());
+		model.addAttribute("viewList", mapper.viewAll(dto));
 		System.out.println("ex02_3 동작완료");
 		
 		return "member/list";	
 	}
 	
 	// 등록
-	@RequestMapping("/member/reg")
+	@RequestMapping("member/reg")
 	public String register(MemberDTO dto) {
 		
-		return "/member/reg";
+		return "member/reg";
 	}
 	
 	// 수정
 	@RequestMapping("/member/modify")
 	public String modify() {
 		
-		return "/member/modify";
+		return "member/modify";
 	}
 	
 	// 삭제
 	@RequestMapping("/member/del")
 	public String del() {
 		
-		return "/member/del";
+		return "member/del";
 	}
 	
 }

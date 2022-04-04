@@ -5,7 +5,7 @@
 	
 <mapper	namespace="com.spring.mapper.MemberMapper">
 
-	<select id="viewMember" resultType="com.spring.domain.MemberDTO">
+	<select id="viewAll" resultType="com.spring.domain.MemberDTO">
 		select * from userlist
 	</select>
 	 
@@ -13,17 +13,37 @@
 	<insert id="insertMember" parameterType="com.spring.domain.MemberDTO">
 		insert into 
 		userlist(
-			id,
-			name,
-			password
-		)
+			id
+			, name
+			, password)
 		values(
 			#{id}
-			#{name}
-			#{password}
+			, #{name}
+			, #{password}
 		)
-			 
     </insert>
     
+    
+    <update id="updateMembeer">
+    	update userlist set
+			id = #{id}
+			, name = #{name}
+			, password = #{password}
+		where
+			id = #{id}
+    </update>
+    
+    
+    <delete id="deleteMember">
+    	delete form userlist
+    	where
+    		id = #{id}
+    </delete>
+    
+    <select id="selectMemberCode" parameterType="com.spring.domain.MemberDTO" resultType="com.spring.domain.MemberDTO">
+    	select * from userlist
+    	where
+    		id = #{id}
+    </select>
     
 </mapper>
