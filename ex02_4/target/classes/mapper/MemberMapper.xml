@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper	namespace="com.spring.mapper.MemberMapper">
+
+	<select id="viewAll" resultType="com.spring.domain.MemberDTO">
+		select * from userlist
+	</select>
+	 
+	 
+	<insert id="insertMember" parameterType="com.spring.domain.MemberDTO">
+		insert into 
+		userlist(
+			id
+			, name
+			, password)
+		values(
+			#{id}
+			, #{name}
+			, #{password}
+		)
+    </insert>
+    
+    
+    <update id="updateMembeer">
+    	update userlist set
+			id = #{id}
+			, name = #{name}
+			, password = #{password}
+		where
+			id = #{id}
+    </update>
+    
+    
+    <delete id="deleteMember">
+    	delete form userlist
+    	where
+    		id = #{id}
+    </delete>
+    
+    <select id="selectMemberCode" parameterType="com.spring.domain.MemberDTO" resultType="com.spring.domain.MemberDTO">
+    	select * from userlist
+    	where
+    		id = #{id}
+    </select>
+    
+</mapper>
