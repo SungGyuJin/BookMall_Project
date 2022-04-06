@@ -4,15 +4,20 @@ import java.util.Date;
 
 public class BoardVO {
 	
-	int seq;
+	int seq, cnt;
 	String title, writer, content;
 	Date regdate;
-	
 	public int getSeq() {
 		return seq;
 	}
 	public void setSeq(int seq) {
 		this.seq = seq;
+	}
+	public int getCnt() {
+		return cnt;
+	}
+	public void setCnt(int cnt) {
+		this.cnt = cnt;
 	}
 	public String getTitle() {
 		return title;
@@ -38,6 +43,7 @@ public class BoardVO {
 	public void setRegdate(Date regdate) {
 		this.regdate = regdate;
 	}
+	
 	
 	
 }

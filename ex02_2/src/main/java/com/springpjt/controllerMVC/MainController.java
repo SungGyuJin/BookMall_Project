@@ -3,7 +3,9 @@ package com.springpjt.controllerMVC;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springpjt.service.BoardService;
 
@@ -30,7 +32,6 @@ public class MainController {
 		
 		System.out.println("test작동");
 		
-		model.addAttribute("viewAll", boardService.viewAll());
 		return "board/test";
 	}
 	
@@ -39,7 +40,15 @@ public class MainController {
 
 		System.out.println("boardList작동");
 		
-		model.addAttribute("viewAll", boardService.viewAll());
 		return "board/boardList";
+	}
+	
+	@GetMapping
+	public String viewDetail(Model model, @RequestParam("seq")int seq) {
+		
+		model.addAttribute("board", boardService.viewDetail(seq));
+		// model.addAttribute("board", boardService.viewDetail(vo.getSeq()));
+		
+		return "board/viewDetail";
 	}
 }

@@ -13,6 +13,5 @@
 
 <P>  The time on the server is ${hi}. </P>
 
-ㅋㅋㅋ
 </body>
 </html>

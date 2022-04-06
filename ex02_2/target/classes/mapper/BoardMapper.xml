@@ -4,8 +4,11 @@
 <mapper namespace="com.springpjt.mapper.BoardMapper">
 		
 		<!-- id는 해당 SQL문을 호출하기 위한 이름이다
-			 그리고 resultType은 결과값을 받을 타입을 지정한 것 -->
+			 그리고 resultType은 결과값을 받을 타입을 지정한 것 
 		<select id="viewAll" resultType="com.springpjt.domain.BoardVO">
 			select * from board
+		</select>-->
+		<select id="viewDetail" resultType="com.springpjt.domain.BoardVO">
+			SELECT * FROM BOARD WHERE SEQ = #{seq}
 		</select>
 </mapper>
