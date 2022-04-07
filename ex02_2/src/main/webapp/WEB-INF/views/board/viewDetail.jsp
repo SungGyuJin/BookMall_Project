@@ -24,6 +24,7 @@
 <br><br><br>
 <div id="outter">
 		<table border="1">
+		<c:forEach var="board">
 			<tr>
 				<td>제목:  ${board.title }</td>
 			</tr>
@@ -36,6 +37,7 @@
 			<tr>
 				<td><div style="height: 300px; margin: 10px; dispaly: inline-block">${board.content }</div></td>
 			</tr>
+		</c:forEach>
 		</table>
 		<input type="button" value="글 목록" style="float: right;" onClick="location.href='board';">
 </div>

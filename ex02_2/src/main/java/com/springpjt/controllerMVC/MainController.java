@@ -43,7 +43,7 @@ public class MainController {
 		return "board/boardList";
 	}
 	
-	@GetMapping
+	@GetMapping("detail")
 	public String viewDetail(Model model, @RequestParam("seq")int seq) {
 		
 		model.addAttribute("board", boardService.viewDetail(seq));
