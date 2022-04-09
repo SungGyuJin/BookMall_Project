@@ -7,7 +7,7 @@ import com.spring.domain.MemberDTO;
 public interface MemberMapper {
 	
 	
-	public List<MemberDTO> viewAll(MemberDTO dto);
+	public List<MemberDTO> viewAll();
 	// 게시물 리스트 조회
 	public List<MemberDTO> selectMemberList(MemberDTO dto) throws Exception;
 	

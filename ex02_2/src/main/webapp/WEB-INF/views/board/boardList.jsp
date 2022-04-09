@@ -7,10 +7,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	h2 {
+		text-align: center;
+	}
+	table {
+		width: 100%;
+	}
+	#outter {
+		display: block;
+		width: 60%;
+		margin: auto;
+	}
+</style>
 </head>
 <body>
 	
-	<table>
+	<table border="1">
 		<thead>
 			<tr>
 				<th>번호</th>

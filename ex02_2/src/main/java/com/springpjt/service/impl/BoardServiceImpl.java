@@ -1,5 +1,7 @@
 package com.springpjt.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,9 +16,9 @@ public class BoardServiceImpl implements BoardService{
 	private BoardMapper mapper;
 	
 	@Override
-	public BoardVO viewDetail(int seq) {
+	public List<BoardVO> viewAll() {
 		
-		return mapper.viewDetail(seq);
+		return mapper.viewAll();
 	}
 	
 }

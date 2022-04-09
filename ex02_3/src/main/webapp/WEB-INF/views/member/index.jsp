@@ -8,7 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	<br>
 	<h2>index Page</h2>
 	<input type="button" id="btn_list" value="게시글 조회" />&nbsp;

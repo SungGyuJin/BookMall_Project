@@ -32,7 +32,7 @@ public class MainController {
 	@RequestMapping("member/list")
 	public String list(Model model, MemberDTO dto) {
 		
-		model.addAttribute("viewList", mapper.viewAll(dto));
+		model.addAttribute("viewList", mapper.viewAll());
 		System.out.println("ex02_3 동작완료");
 		
 		return "member/list";	

@@ -24,7 +24,7 @@
 <br><br><br>
 <div id="outter">
 		<table border="1">
-		<c:forEach var="board">
+		<c:forEach items="${viewAll }" var="board">
 			<tr>
 				<td>제목:  ${board.title }</td>
 			</tr>

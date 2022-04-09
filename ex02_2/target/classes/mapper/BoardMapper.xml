@@ -8,7 +8,7 @@
 		<select id="viewAll" resultType="com.springpjt.domain.BoardVO">
 			select * from board
 		</select>-->
-		<select id="viewDetail" resultType="com.springpjt.domain.BoardVO">
-			SELECT * FROM BOARD WHERE SEQ = #{seq}
+		<select id="viewAll" resultType="com.springpjt.domain.BoardVO">
+			SELECT * FROM board
 		</select>
 </mapper>
