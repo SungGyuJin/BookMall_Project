@@ -16,9 +16,20 @@ public class BoardServiceImpl implements BoardService{
 	private BoardMapper mapper;
 	
 	@Override
-	public List<BoardVO> viewAll() {
+	public List<BoardVO> viewAll(){
 		
 		return mapper.viewAll();
 	}
+	
+	@Override
+	public BoardVO viewDetail(int seq) {
+		
+		return mapper.viewDetail(seq);
+	}
+//	@Override
+//	public boolean plusCnt(int seq) {
+//		
+//		return mapper.plusCnt(seq);
+//	}
 	
 }

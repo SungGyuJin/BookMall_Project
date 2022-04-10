@@ -22,7 +22,6 @@
 </style>
 </head>
 <body>
-	
 	<table border="1">
 		<thead>
 			<tr>
@@ -37,7 +36,7 @@
 		<c:forEach items="${viewAll}" var="list">
 			<tr>
 				<td>${list.seq }</td>
-				<td><a href='detail?seq=${list.seq }'>${list.title }</a></td>
+				<td><a href='/detail?seq=${list.seq }'>${list.title }</a></td>
 				<td>${list.writer }</td>
 				<td><fmt:formatDate value="${list.regdate }" pattern="yyyy.MM.dd" /></td>
 				<td>${list.cnt }</td>
@@ -45,8 +44,5 @@
 		</c:forEach>
 		</tbody>
 	</table>
-	
-	
-	
 </body>
 </html>
