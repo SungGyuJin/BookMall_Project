@@ -29,7 +29,7 @@
 				<th>제목</th>
 				<th>작가</th>
 				<th>날짜</th>
-				<th>CNT</th>
+				<th>조회수</th>
 			</tr>
 		</thead>
 		<tbody>

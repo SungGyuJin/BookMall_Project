@@ -14,9 +14,7 @@
 			SELECT * FROM BOARD WHERE SEQ = #{seq}
 		</select>
 		
-		<!-- 
 		<update id="plusCnt" parameterType="int">
-			UPDATE BOARD SET CNT = WHERE SEQ = #{seq}
+			UPDATE BOARD SET CNT = CNT + 1 WHERE SEQ = #{seq}
 		</update>
-		-->
 </mapper>

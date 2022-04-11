@@ -26,10 +26,11 @@ public class BoardServiceImpl implements BoardService{
 		
 		return mapper.viewDetail(seq);
 	}
-//	@Override
-//	public boolean plusCnt(int seq) {
-//		
-//		return mapper.plusCnt(seq);
-//	}
+	
+	@Override
+	public boolean plusCnt(int seq) {
+		
+		return mapper.plusCnt(seq);
+	}
 	
 }

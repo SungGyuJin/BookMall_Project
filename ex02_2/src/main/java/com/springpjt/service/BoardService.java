@@ -10,6 +10,6 @@ public interface BoardService {
 	
 	public BoardVO viewDetail(int seq);
 	
-//	public boolean plusCnt(int seq);
+	public boolean plusCnt(int seq);
 	
 }

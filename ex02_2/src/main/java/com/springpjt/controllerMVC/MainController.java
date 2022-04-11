@@ -40,8 +40,8 @@ public class MainController {
 	@RequestMapping("board/boardList")
 	public String board(Model model) {
 		
-		System.out.println("boardList작동");
 		model.addAttribute("viewAll", boardService.viewAll());
+		  System.out.println("조회페이지 작동완료");
 		
 		return "board/boardList";
 	}
@@ -52,7 +52,8 @@ public class MainController {
 	  model.addAttribute("board", boardService.viewDetail(seq));
 	  
 	  //조회수 +1
-//	  boardService.plusCnt(seq);
+	  boardService.plusCnt(seq);
+	  System.out.println("상세페이지 작동완료");
 	  
 	  return "board/viewDetail";
 	}
