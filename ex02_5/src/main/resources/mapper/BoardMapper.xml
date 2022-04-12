@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!-- 4번 라인의 뜻은 SQL문을 작성한 매퍼와 namespace로 등록한 인터페이스를 연동한다는 뜻-->
+<mapper namespace="com.springpjt.mapper.BoardMapper">
+		
+		<!-- id는 해당 SQL문을 호출하기 위한 이름이다
+			 그리고 resultType은 결과값을 받을 타입을 지정한 것 -->
+		
+		<select id="viewAll" resultType="com.springpjt.domain.BoardVO">
+			SELECT * FROM BOARD
+		</select>
+		
+		<select id="viewDetail" resultType="com.springpjt.domain.BoardVO">
+			SELECT * FROM BOARD WHERE SEQ = #{seq}
+		</select>
+		
+		<update id="plusCnt" parameterType="int">
+			UPDATE BOARD SET CNT = CNT + 1 WHERE SEQ = #{seq}
+		</update>
+</mapper>
