@@ -23,6 +23,6 @@
 	
 	<mybatis-spring:scan base-package="com.spring.mapper"/>
 	
-	<context:component-scan base-package="com.spring.impl"></context:component-scan>
+	<context:component-scan base-package="com.spring.impl" />
 	
 </beans>
