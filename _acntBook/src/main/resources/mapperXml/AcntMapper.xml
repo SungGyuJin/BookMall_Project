@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+<!-- 4번 라인의 뜻은 SQL문을 작성한 매퍼와 namespace로 등록한 인터페이스를 연동한다는 뜻-->
+<mapper namespace="com.spring.mapper.AcntMapper">
+</mapper>
