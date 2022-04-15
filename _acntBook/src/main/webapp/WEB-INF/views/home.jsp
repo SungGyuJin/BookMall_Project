@@ -12,5 +12,7 @@
 </h1>
 
 <P>  반갑습니다. 여기는 ${key}. </P>
+
+<a href="../main/index" >클릭</a>
 </body>
 </html>
