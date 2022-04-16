@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.spring.domain.AcntVO;
 import com.spring.mapper.AcntMapper;
 
 @Controller
@@ -23,8 +24,9 @@ public class AcntController {
 	}
 	
 	@RequestMapping("main/index")
-	public String indexPage() {
+	public String indexPage(Model model, AcntVO avo) {
 		
+		model.addAttribute("cont", mapper.contentView(avo));
 		
 		return "main/index";
 	}
