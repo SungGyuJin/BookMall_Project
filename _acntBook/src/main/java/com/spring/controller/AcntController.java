@@ -1,5 +1,8 @@
 package com.spring.controller;
 
+
+import java.util.Calendar;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +14,14 @@ import com.spring.mapper.AcntMapper;
 @Controller
 @RequestMapping(value = "/")
 public class AcntController {
+	
+	Calendar cal = Calendar.getInstance();
+	
+	
+	int year = cal.get(Calendar.YEAR);
+	int month = cal.get(Calendar.MONTH);
+	int date = cal.get(Calendar.DATE);
+	
 	
 	@Autowired
 	private AcntMapper mapper;
@@ -27,6 +38,12 @@ public class AcntController {
 	public String indexPage(Model model, AcntVO avo) {
 		
 		model.addAttribute("cont", mapper.contentView(avo));
+		
+		model.addAttribute("year", year);
+		model.addAttribute("month", month + 1);
+		model.addAttribute("date", date);
+		
+		System.out.println(year);
 		
 		return "main/index";
 	}

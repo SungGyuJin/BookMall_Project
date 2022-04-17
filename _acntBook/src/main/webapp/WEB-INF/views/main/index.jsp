@@ -28,5 +28,10 @@
 			</c:forEach>
 		</tbody>
 	</table>
+
+	년 : ${year } <br>
+	월 : ${month } <br>
+	일 : ${date } <br>
+	
 </body>
 </html>
