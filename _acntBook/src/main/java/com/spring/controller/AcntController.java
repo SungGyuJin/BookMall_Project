@@ -1,6 +1,5 @@
 package com.spring.controller;
 
-
 import java.util.Calendar;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,37 +13,44 @@ import com.spring.mapper.AcntMapper;
 @Controller
 @RequestMapping(value = "/")
 public class AcntController {
-	
+
 	Calendar cal = Calendar.getInstance();
-	
-	
-	int year = cal.get(Calendar.YEAR);
-	int month = cal.get(Calendar.MONTH);
-	int date = cal.get(Calendar.DATE);
-	
-	
+
+	int year = cal.get(Calendar.YEAR); // 년
+	int month = cal.get(Calendar.MONTH); // 월
+	int date = cal.get(Calendar.DATE); // 일
+
 	@Autowired
 	private AcntMapper mapper;
-	
+
 	@RequestMapping("/")
 	public String home(Model model) {
-		
+
 		model.addAttribute("key", "Home.jsp 입니다");
-		
+
 		return "home";
 	}
 	
 	@RequestMapping("main/index")
 	public String indexPage(Model model, AcntVO avo) {
-		
+
+		cal.set(year, month, 1); 
+
+		int lastDate = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+		System.out.println(lastDate); // 세팅된 달력의 말일짜
+
 		model.addAttribute("cont", mapper.contentView(avo));
-		
+
 		model.addAttribute("year", year);
-		model.addAttribute("month", month + 1);
+		model.addAttribute("month", month);
 		model.addAttribute("date", date);
-		
+		model.addAttribute("lastDate", lastDate);
+
 		System.out.println(year);
-		
+		System.out.println(month+1);
+		System.out.println(date);
+
 		return "main/index";
 	}
 }

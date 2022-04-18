@@ -28,10 +28,35 @@
 			</c:forEach>
 		</tbody>
 	</table>
+	
+	<h3>${year }년 ${month }월 ${date}일</h3>
+	<table border="1">
+		<thead>
+			<tr>
+				<th>일</th>
+				<th>월</th>
+				<th>화</th>
+				<th>수</th>
+				<th>목</th>
+				<th>금</th>
+				<th>토</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="date" begin="1" end="${lastDate }">
+				<tr>
+					<td><c:out value="${date }" /></td>
+					<td><c:out value="${date }" /></td>
+					<td><c:out value="${date }" /></td>
+					<td><c:out value="${date }" /></td>
+					<td><c:out value="${date }" /></td>
+					<td><c:out value="${date }" /></td>
+					<td><c:out value="${date }" /></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 
-	년 : ${year } <br>
-	월 : ${month } <br>
-	일 : ${date } <br>
 	
 </body>
 </html>
