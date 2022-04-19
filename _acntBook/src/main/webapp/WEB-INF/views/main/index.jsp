@@ -18,7 +18,7 @@
 				<th>내용</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody> 
 			<c:forEach items="${cont }" var="list">
 				<tr>
 					<td><c:out value="${list.income }" /></td>
@@ -45,11 +45,6 @@
 		<tbody>
 			<c:forEach var="date" begin="1" end="${lastDate }">
 				<tr>
-					<td><c:out value="${date }" /></td>
-					<td><c:out value="${date }" /></td>
-					<td><c:out value="${date }" /></td>
-					<td><c:out value="${date }" /></td>
-					<td><c:out value="${date }" /></td>
 					<td><c:out value="${date }" /></td>
 					<td><c:out value="${date }" /></td>
 				</tr>
