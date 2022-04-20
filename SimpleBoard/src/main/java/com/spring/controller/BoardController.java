@@ -9,7 +9,7 @@ import com.spring.mapper.BoardMapper;
 
 @Controller
 @RequestMapping(value = "/")
-public class MainController {
+public class BoardController {
 	
 	@Autowired
 	private BoardMapper mapper;
@@ -17,17 +17,23 @@ public class MainController {
 	@RequestMapping("/")
 	public String homePage(Model model) {
 		
-		model.addAttribute("key", "반갑습니다");
+		model.addAttribute("home", "반갑습니다");
 		
 		return "home";
 	}
 	
-	@RequestMapping("test/viewPage")
-	public String viewJsp(Model model) {
+	@RequestMapping("board/main")
+	public String listPage(Model model) {
 		
-		model.addAttribute("hi", "ㅎㅇ");
+		model.addAttribute("list", mapper.viewList());
 		
-		return "test/viewPage";
+		return "board/main";
+	}
+	
+	@RequestMapping("board/register")
+	public String register() {
+		
+		return "board/register";
 	}
 	
 }

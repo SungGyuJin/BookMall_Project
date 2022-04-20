@@ -11,6 +11,8 @@
 	Hello world!  
 </h1>
 
-<P>  The time on the server is ${serverTime}. </P>
+<P>  The time on the server is ${home}. </P>
+
+<a href="../board/main">클릭</a>
 </body>
 </html>

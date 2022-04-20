@@ -9,12 +9,6 @@
 </head>
 <body>
 	<h1>조회페이지</h1>
-	<table border="">
-		<thead>
-			<tr>
-				<th></th>
-			</tr>
-		</thead>
-	</table>
+	${hi }
 </body>
 </html>
