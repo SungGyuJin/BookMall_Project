@@ -18,11 +18,11 @@
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${list }" var="list">
+		<c:forEach items="${list }" var="board">
 			<tr>
-				<td><c:out value="${list.nickname }" /></td>
-				<td><c:out value="${list.title }" /></td>
-				<td><c:out value="${list.content }" /></td>
+				<td><c:out value="${board.nickname }" /></td>
+				<td><c:out value="${board.title }" /></td>
+				<td><c:out value="${board.content }" /></td>
 			</tr>
 		</c:forEach>
 		</tbody>

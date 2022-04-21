@@ -7,4 +7,13 @@
 	<select id="viewList" resultType="com.spring.domain.BoardVO">
 		SELECT * FROM simpleboard
 	</select>
+	
+	<insert id="insertBoard">
+		INSERT INTO
+		simpleboard 
+		VALUES(
+			#{nickname}
+			, #{title}
+			, #{content})
+	</insert>
 </mapper>

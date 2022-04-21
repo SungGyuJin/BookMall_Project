@@ -10,7 +10,7 @@
 	<!-- Root Context: defines shared resources visible to all other web components -->
 	<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource" id="dataSource">
 		
-		<property value="oracle.jdbc.driver.OracelDriver" name="driverClassName" />
+		<property value="oracle.jdbc.driver.OracleDriver" name="driverClassName" />
 		<property value="jdbc:oracle:thin:@localhost:1521:xe" name="url" />
 		<property value="system" name="username" />
 		<property value="1234" name="password" />
@@ -20,7 +20,7 @@
 	<bean class="org.mybatis.spring.SqlSessionFactoryBean" id="SqlSessionFactory">
 		
 		<property name="dataSource" ref="dataSource" />
-		<property value="classpath:mybatis-config.xml" name="configLocation" />
+		<property value="classpath:mybatis/config/mybatis-config.xml" name="configLocation" />
 		<property value="classpath:mapper/*Mapper.xml" name="mapperLocations" />
 		
 	</bean>	

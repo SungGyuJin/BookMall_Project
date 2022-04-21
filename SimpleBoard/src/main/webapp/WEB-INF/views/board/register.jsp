@@ -8,14 +8,14 @@
 </head>
 <body>
 	<h1>여기는 등록페이지</h1>
-	<form name="fm">
+	<form role="form" action="/board/register" method="post">
 		<table border="1" style="text-align: center;">
 			<tr>
 				<td>닉네임</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="text" />
+					<input type="text" name="nickname"/>
 				</td>
 			</tr>
 			<tr>
@@ -23,7 +23,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="text" />
+					<input type="text" name="title"/>
 				</td>
 			</tr>
 			<tr>
@@ -31,11 +31,11 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="text" />
+					<input type="text" name="content"/>
 				</td>
 			</tr>
 			<tr>
-				<td><input type="button" value="등록"/></td>
+				<td><input type="submit" value="등록"/></td>
 			</tr>
 		</table>
 	</form>
