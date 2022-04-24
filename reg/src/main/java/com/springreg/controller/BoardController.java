@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +24,9 @@ public class BoardController {
 	
 	// 목록페이지
 	@GetMapping("/list") // == @ReqeustMapping(value="list", method=ReqeustMethod.GET)
-	public void boardListGET() {
+	public void boardListGET(Model model) {
+		
+		model.addAttribute("list", bs.viewList());
 		
 		log.info("게시판 조회페이지 진입");
 	}

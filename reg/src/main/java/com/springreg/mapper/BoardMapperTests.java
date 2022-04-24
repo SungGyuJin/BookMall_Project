@@ -15,7 +15,6 @@ public class BoardMapperTests {
 		
 		BoardVO vo = new BoardVO();
 		
-		vo.setNickname("mapper");
 		vo.setTitle("mapper test");
 		vo.setContent("mapper test");
 		

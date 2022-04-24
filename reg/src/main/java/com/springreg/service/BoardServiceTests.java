@@ -15,14 +15,11 @@ public class BoardServiceTests {
 	@Autowired
 	private BoardService service;
 	
+	
 	@Test
 	public void testEnroll() {
 		
 		BoardVO vo = new BoardVO();
-		
-		vo.setNickname("service");
-		vo.setTitle("service test");
-		vo.setContent("service test");
 		
 		service.enroll(vo);
 		
