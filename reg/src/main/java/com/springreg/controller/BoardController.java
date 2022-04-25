@@ -26,7 +26,7 @@ public class BoardController {
 	@GetMapping("/list") // == @ReqeustMapping(value="list", method=ReqeustMethod.GET)
 	public void boardListGET(Model model) {
 		
-		model.addAttribute("list", bs.viewList());
+		model.addAttribute("list", bs.getList());
 		
 		log.info("게시판 조회페이지 진입");
 	}
@@ -37,7 +37,6 @@ public class BoardController {
 		
 		log.info("게시판 등록페이지 진입");
 	}
-	
 	
 	// 게시판 등록
 	@PostMapping("/enroll")

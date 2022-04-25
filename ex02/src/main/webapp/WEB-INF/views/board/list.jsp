@@ -33,7 +33,6 @@
 							<th>수정일</th>
 						</tr>
 					</thead>
-
 					<c:forEach items="${list }" var="board">
 						<tr>
 							<td><c:out value="${board.bno }" /></td>

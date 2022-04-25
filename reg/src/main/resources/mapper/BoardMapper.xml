@@ -4,13 +4,26 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.springreg.mapper.BoardMapper">
   
-  	<select id="viewList" resultType="com.springreg.domain.BoardVO">
+  	<select id="getList" resultType="com.springreg.domain.BoardVO">
+  	
   		SELECT * FROM simpleboard
+  		
   	</select>
   	
   	<insert id="enroll">
 		
-  		INSERT INTO simpleboard VALUES (#{nickname}, #{title}, #{content})
+  		INSERT INTO simpleboard (
+	  		title
+	  		, content
+	  		, writer
+	  	) VALUES (
+  			#{bno}
+  			, #{title}
+  			, #{content}
+  			, #{writer}
+  			, #{regdate}
+  			, #{updatedate}
+  		)
   		
   	</insert>
  	

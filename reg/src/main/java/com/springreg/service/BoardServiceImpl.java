@@ -14,12 +14,15 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardMapper mapper;
 	
+	// 목록
 	@Override
-	public List<BoardVO> viewList() {
+	public List<BoardVO> getList() {
 		
-		return mapper.viewList();
+		return mapper.getList();
 	}
 	
+	
+	// 등록
 	@Override
 	public void enroll(BoardVO board) {
 		

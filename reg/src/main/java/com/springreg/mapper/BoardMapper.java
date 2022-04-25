@@ -6,7 +6,7 @@ import com.springreg.domain.BoardVO;
 
 public interface BoardMapper {
 	
-	public List<BoardVO> viewList();
+	public List<BoardVO> getList();
 	
 	public void enroll(BoardVO board);
 	

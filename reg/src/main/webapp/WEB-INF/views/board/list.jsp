@@ -15,18 +15,23 @@
 	<table border="1">
 		<thead>
 			<tr>
-				<th>닉네임</th>
+				<th>번호</th>
 				<th>제목</th>
 				<th>내용</th>
+				<th>글쓴이</th>
+				<th>등록날짜</th>
+				<th>수정날짜</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach items="${list }" var="con">
 				<tr>
-					<td><c:out value="${con.nickname }" /></td>
+					<td><c:out value="${con.bno }" /></td>
 					<td><c:out value="${con.title }" /></td>
 					<td><c:out value="${con.content }" /></td>
-					
+					<td><c:out value="${con.writer }" /></td>
+					<td><fmt:formatDate pattern="yyyy/MM/dd" value="${con.regdate }" /></td>
+					<td><fmt:formatDate pattern="yyyy/MM/dd" value="${con.updatedate }" /></td>
 				</tr>
 			</c:forEach>		
 		</tbody>
