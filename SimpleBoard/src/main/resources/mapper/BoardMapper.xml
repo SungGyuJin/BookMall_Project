@@ -5,15 +5,20 @@
 	
 <mapper	namespace="com.spring.mapper.BoardMapper">
 	<select id="viewList" resultType="com.spring.domain.BoardVO">
-		SELECT * FROM simpleboard
+		select * from simpleboard order by bno asc
 	</select>
 	
 	<insert id="insertBoard">
-		INSERT INTO
-		simpleboard 
+		insert into
+		simpleboard(
+			title,
+			content,
+			writer
+		)
 		VALUES(
-			#{nickname}
-			, #{title}
-			, #{content})
+			#{title},
+			#{content},
+			#{writer}
+		)
 	</insert>
 </mapper>

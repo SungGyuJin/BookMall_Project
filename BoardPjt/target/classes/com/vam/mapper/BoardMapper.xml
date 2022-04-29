@@ -16,5 +16,9 @@
 			, #{writer}
 		)
  	</insert>
+ 	
+ 	<select id="viewList" resultType="com.vam.model.BoardVO">
+ 		select * from simpleboard order by bno asc
+ 	</select>
  
   </mapper>

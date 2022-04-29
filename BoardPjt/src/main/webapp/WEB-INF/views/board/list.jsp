@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +12,32 @@
 <body>
 	<h1>목록페이지</h1>
 	<a href="/board/enroll">등록하기</a>
+	<hr>
+	
+	<table border="1">
+		<thead>
+			<tr>
+				<th>번호</th>
+				<th>제목</th>
+				<th>내용</th>
+				<th>작성자</th>
+				<th>등록일</th>
+				<th>수정일</th>
+			</tr>		
+		</thead>
+		<tbody>
+		<c:forEach items="${list }" var="list">
+			<tr>
+				<td><c:out value="${list.bno }" /></td>
+				<td><c:out value="${list.title }" /></td>
+				<td><c:out value="${list.content }" /></td>
+				<td><c:out value="${list.writer }" /></td>
+				<td><fmt:formatDate value="${list.regdate }" pattern="yyyy-MM-dd"/></td>
+				<td><fmt:formatDate value="${list.updatedate }" pattern="yyyy-MM-dd"/></td>
+			</tr>
+		</c:forEach>
+		</tbody>
+	</table>
 </body>
 <script>
 	$(document).ready(function(){

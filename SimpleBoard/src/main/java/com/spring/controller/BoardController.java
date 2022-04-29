@@ -3,23 +3,17 @@ package com.spring.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.spring.domain.BoardVO;
-import com.spring.mapper.BoardMapper;
-import com.spring.service.impl.BoardService;
+import com.spring.service.impl.BoardDAOService;
 
 @Controller
 @RequestMapping(value = "/")
 public class BoardController {
 	
 	@Autowired
-	private BoardMapper mapper;
-	
-	@Autowired
-	private BoardService boardServiceImpl;
+	private BoardDAOService boardServiceImpl;
 	
 	@RequestMapping("/")
 	public String homePage(Model model) {
@@ -29,20 +23,29 @@ public class BoardController {
 		return "home";
 	}
 	
+	// 조회
 	@RequestMapping("board/main")
 	public String listPage(Model model) {
 		
-		model.addAttribute("list", mapper.viewList());
+		model.addAttribute("list", boardServiceImpl.viewList());
 		
 		return "board/main";
 	}
 	
-	@GetMapping("board/register")
-	public String write(@ModelAttribute("boardVO") BoardVO boardVO, Model model) {
+	@RequestMapping("board/register")
+	public String register(BoardVO bvo) {
 		
-		boardServiceImpl.insertBoard(boardVO);
+		boardServiceImpl.insertBoard(bvo);
 		
 		return "redirect:/board/main";
 	}
+	
+//	@GetMapping("board/register")
+//	public String write(@ModelAttribute("boardVO") BoardVO boardVO, Model model) {
+//		
+//		boardServiceImpl.insertBoard(boardVO);
+//		
+//		return "redirect:/board/main";
+//	}
 	
 }

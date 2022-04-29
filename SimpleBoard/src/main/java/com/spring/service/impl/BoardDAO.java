@@ -6,7 +6,7 @@ import com.spring.domain.BoardVO;
 
 public interface BoardDAO {
 	
-//	List<BoardVO> viewList();
+	List<BoardVO> viewList();
 	
 	void insertBoard(BoardVO bvo);
 	

@@ -10,8 +10,8 @@ public interface BoardMapper {
 	
 	public void insertBoard(BoardVO bvo);
 	
-	public void updateBoard(BoardVO bvo);
-	
-	public void deleteBOard(BoardVO bvo);
+//	public void updateBoard(BoardVO bvo);
+//	
+//	public void deleteBOard(BoardVO bvo);
 	
 }
