@@ -14,7 +14,6 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardMapper mapper;
 	
-	
 	// 등록
 	@Override
 	public void enroll(BoardVO board) {
@@ -27,6 +26,12 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> viewList(){
 		
 		return mapper.viewList();
+	}
+	
+	@Override
+	public BoardVO getPage(int bno) {
+		
+		return mapper.getPage(bno);
 	}
 	
 }

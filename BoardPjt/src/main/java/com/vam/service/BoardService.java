@@ -12,4 +12,7 @@ public interface BoardService {
 	// 조회
 	public List<BoardVO> viewList();
 	
+	// 상세조회
+	public BoardVO getPage(int bno);
+	
 }

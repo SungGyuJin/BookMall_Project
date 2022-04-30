@@ -8,13 +8,21 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<style>
+	#tab{
+		width: 800px;
+		height: 600px;
+		text-align: center;
+	}
+</style>
 </head>
 <body>
 	<h1>목록페이지</h1>
 	<a href="/board/enroll">등록하기</a>
 	<hr>
 	
-	<table border="1">
+	<table id="tab" border="1">
 		<thead>
 			<tr>
 				<th>번호</th>
@@ -28,7 +36,7 @@
 		<tbody>
 		<c:forEach items="${list }" var="list">
 			<tr>
-				<td><c:out value="${list.bno }" /></td>
+				<td><a href="/board/get?bno=${list.bno }"><c:out value="${list.bno }" /></a></td>
 				<td><c:out value="${list.title }" /></td>
 				<td><c:out value="${list.content }" /></td>
 				<td><c:out value="${list.writer }" /></td>

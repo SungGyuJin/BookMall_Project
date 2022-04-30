@@ -15,15 +15,23 @@ public class BoardServiceTests {
 	@Autowired
 	private BoardService service;
 	
-	@Test
-	public void testEnroll() {
+//	@Test
+//	public void testEnroll() {
+//	
+//		BoardVO vo = new BoardVO();
+//		
+//		vo.setTitle("service test");
+//		vo.setContent("service test");
+//		vo.setWriter("service test");
+//		
+//		service.enroll(vo);
+//	}
 	
-		BoardVO vo = new BoardVO();
+	@Test
+	public void test() {
 		
-		vo.setTitle("service test");
-		vo.setContent("service test");
-		vo.setWriter("service test");
+		int bno = 2;
 		
-		service.enroll(vo);
+		service.getPage(bno);
 	}
 }

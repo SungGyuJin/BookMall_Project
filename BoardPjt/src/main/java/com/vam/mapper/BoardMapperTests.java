@@ -18,15 +18,23 @@ public class BoardMapperTests {
 	@Autowired
 	private BoardMapper mapper;
 	
+//	@Test
+//	public void testEnroll() {
+//		
+//		BoardVO vo = new BoardVO();
+//		
+//		vo.setTitle("mapper test");
+//		vo.setContent("mapper test");
+//		vo.setWriter("mapper test");
+//		
+//		mapper.enroll(vo);
+//	}
+	
 	@Test
-	public void testEnroll() {
+	public void testGetPage() {
 		
-		BoardVO vo = new BoardVO();
+		int bno = 2;
 		
-		vo.setTitle("mapper test");
-		vo.setContent("mapper test");
-		vo.setWriter("mapper test");
-		
-		mapper.enroll(vo);
+		log.info("" + mapper.getPage(bno));
 	}
 }
