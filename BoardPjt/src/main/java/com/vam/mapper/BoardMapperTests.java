@@ -30,11 +30,23 @@ public class BoardMapperTests {
 //		mapper.enroll(vo);
 //	}
 	
+//	@Test
+//	public void testGetPage() {
+//		
+//		int bno = 2;
+//		
+//		log.info("" + mapper.getPage(bno));
+//	}
+	
 	@Test
-	public void testGetPage() {
+	public void testModify() {
 		
-		int bno = 2;
+		BoardVO board = new BoardVO();
+		board.setBno(1);
+		board.setTitle("수정테스트");
+		board.setContent("수정테스트");
 		
-		log.info("" + mapper.getPage(bno));
+		int result = mapper.modify(board);
+		log.info("result : " + result);
 	}
 }

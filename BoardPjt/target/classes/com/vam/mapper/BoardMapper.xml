@@ -24,4 +24,8 @@
  	<select id="getPage" resultType="com.vam.model.BoardVO">
  		select * from simpleboard where bno = #{bno}
  	</select>
+ 	
+ 	<update id="modify">
+ 		update simpleboard set title = #{title}, content = #{content}, updatedate = sysdate where bno = #{bno}
+ 	</update>
   </mapper>

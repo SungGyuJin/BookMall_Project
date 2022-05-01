@@ -28,10 +28,18 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.viewList();
 	}
 	
+	// 상세조회
 	@Override
 	public BoardVO getPage(int bno) {
 		
 		return mapper.getPage(bno);
+	}
+	
+	// 수정
+	@Override
+	public int modify(BoardVO board) {
+		
+		return mapper.modify(board);
 	}
 	
 }

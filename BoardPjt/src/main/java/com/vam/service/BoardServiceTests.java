@@ -8,8 +8,11 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.vam.model.BoardVO;
 
+import lombok.extern.log4j.Log4j;
+
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
+@Log4j
 public class BoardServiceTests {
 	
 	@Autowired
@@ -27,11 +30,23 @@ public class BoardServiceTests {
 //		service.enroll(vo);
 //	}
 	
+//	@Test
+//	public void test() {
+//		
+//		int bno = 2;
+//		
+//		service.getPage(bno);
+//	}
+	
 	@Test
-	public void test() {
+	public void testModify() {
 		
-		int bno = 2;
+		BoardVO board = new BoardVO();
+		board.setBno(1);
+		board.setTitle("1제목수정");
+		board.setContent("1제목내용");
 		
-		service.getPage(bno);
+		int result = service.modify(board);
+		log.info("result : " + result);
 	}
 }
