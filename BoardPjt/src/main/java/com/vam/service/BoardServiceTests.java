@@ -38,15 +38,22 @@ public class BoardServiceTests {
 //		service.getPage(bno);
 //	}
 	
+//	@Test
+//	public void testModify() {
+//		
+//		BoardVO board = new BoardVO();
+//		board.setBno(1);
+//		board.setTitle("정");
+//		board.setContent("1제목내용");
+//		
+//		int result = service.modify(board);
+//		log.info("result : " + result);
+//	}
+	
 	@Test
-	public void testModify() {
+	public void testDelete() {
 		
-		BoardVO board = new BoardVO();
-		board.setBno(1);
-		board.setTitle("1제목수정");
-		board.setContent("1제목내용");
-		
-		int result = service.modify(board);
+		int result = service.delete(22);
 		log.info("result : " + result);
 	}
 }

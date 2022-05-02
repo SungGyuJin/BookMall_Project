@@ -15,6 +15,10 @@ public interface BoardService {
 	// 상세조회
 	public BoardVO getPage(int bno);
 	
-	// 게시판 수정
+	// 수정
 	public int modify(BoardVO board);
+	
+	// 삭제
+	public int delete(int bno);
+	
 }

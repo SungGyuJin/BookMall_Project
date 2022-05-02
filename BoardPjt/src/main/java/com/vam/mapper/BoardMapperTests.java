@@ -38,15 +38,22 @@ public class BoardMapperTests {
 //		log.info("" + mapper.getPage(bno));
 //	}
 	
+//	@Test
+//	public void testModify() {
+//		
+//		BoardVO board = new BoardVO();
+//		board.setBno(1);
+//		board.setTitle("수정");
+//		board.setContent("수정테스트");
+//		
+//		int result = mapper.modify(board);
+//		log.info("result : " + result);
+//	}
+	
 	@Test
-	public void testModify() {
+	public void testDelete() {
 		
-		BoardVO board = new BoardVO();
-		board.setBno(1);
-		board.setTitle("수정테스트");
-		board.setContent("수정테스트");
-		
-		int result = mapper.modify(board);
+		int result = mapper.delete(21);
 		log.info("result : " + result);
 	}
 }

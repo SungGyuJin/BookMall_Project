@@ -28,4 +28,9 @@
  	<update id="modify">
  		update simpleboard set title = #{title}, content = #{content}, updatedate = sysdate where bno = #{bno}
  	</update>
+ 	
+ 	<delete id="delete">
+ 		delete from simpleboard where bno = #{bno}
+ 	</delete>
+ 	
   </mapper>

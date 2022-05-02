@@ -12,10 +12,12 @@ public interface BoardMapper {
 	// 조회
 	public List<BoardVO> viewList();
 	
-	// 게시글 상세조회
+	// 상세조회
 	public BoardVO getPage(int bno);
 	
-	// 게시판 수정
+	// 수정
 	public int modify(BoardVO board);
 	
+	// 삭제
+	public int delete(int bno);
 }

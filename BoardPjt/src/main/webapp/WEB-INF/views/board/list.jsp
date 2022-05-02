@@ -71,6 +71,10 @@ $(document).ready(function(){
 			if(result === "modify success"){
 				alert("수정완료!!");
 			}
+			
+			if(result === "delete success"){
+				alert("삭제완료!!");
+			}
 		}
 		
 });
