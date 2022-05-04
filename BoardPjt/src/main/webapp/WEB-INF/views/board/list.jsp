@@ -7,13 +7,12 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style>
-	#tab{
-		width: 800px;
-		height: 600px;
-		text-align: center;
-	}
+#tab{
+	width: 800px;
+	height: 400px;
+	text-align: center;
+}
 </style>
-
 </head>
 <body>
 	<div class="table table-info table-hover">

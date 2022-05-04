@@ -6,6 +6,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+textarea{
+	width: 800px;
+    height: 200px;
+    font-size: 15px;
+    padding: 10px;
+}
+</style>
 </head>
 <body>
 	<h1>등록페이지</h1>
@@ -24,7 +32,7 @@
 				<label>Content</label>
 			</td>
 			<td>
-				<input id="content" name="content" />
+				<textarea rows="3" id="content" name="content"></textarea>
 			</td>
 		</tr>
 		<tr>
@@ -43,28 +51,27 @@
 	</table>
 	</form>
 <script>
-	$(document).ready(function(){
-		$("#btn_reg").on("click", function(){
-			
-			if($("#title").val() == ""){
-				alert("제목을 입력해주세요.");
-				$("#title").focus();
-				return false;
-			}
 
-			if($("#content").val() == ""){
-				alert("내용을 입력해주세요.");
-				$("#content").focus();
-				return false;
-			}
+	$("#btn_reg").on("click", function(){
+		
+		if($("#title").val() == ""){
+			alert("제목을 입력해주세요.");
+			$("#title").focus();
+			return false;
+		}
+
+		if($("#content").val() == ""){
+			alert("내용을 입력해주세요.");
+			$("#content").focus();
+			return false;
+		}
 			
-			if($("#writer").val() == ""){
-				alert("작성자를 입력해주세요.");
-				$("#writer").focus();
-				return false;
-			}
+		if($("#writer").val() == ""){
+			alert("작성자를 입력해주세요.");
+			$("#writer").focus();
+			return false;
+		}
 						
-		});
 	});
 </script>
 </body>

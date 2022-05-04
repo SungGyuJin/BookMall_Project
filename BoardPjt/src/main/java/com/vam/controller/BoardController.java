@@ -33,15 +33,17 @@ public class BoardController {
 	}
 	
 	@GetMapping("/enroll")
-	public void boardEnrollGET() {
+	public void boardEnrollGET(Model model) {
 		
 		log.info("등록페이지 진입");
+		
 	}
 	
 	@PostMapping("/enroll")
 	public String boardEnrollPOST(BoardVO board, RedirectAttributes rttr) {
 		
 		log.info("BoardVO : " + board);
+		
 		
 		bservice.enroll(board);
 		

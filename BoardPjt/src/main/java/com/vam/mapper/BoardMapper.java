@@ -20,4 +20,7 @@ public interface BoardMapper {
 	
 	// 삭제
 	public int delete(int bno);
+	
+	// 게시판번호(마지막)
+	public int bnoLast();
 }

@@ -42,10 +42,18 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.modify(board);
 	}
 	
+	// 삭제
 	@Override
 	public int delete(int bno) {
 		
 		return mapper.delete(bno);
+	}
+	
+	// 마지막 번호
+	@Override
+	public int bnoLast() {
+		
+		return mapper.bnoLast();
 	}
 	
 }

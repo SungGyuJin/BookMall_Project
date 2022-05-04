@@ -6,16 +6,22 @@
  	
  	<insert id="enroll"> 
 		insert into simpleboard(
-			title
+			bno
+			,title
 			, content
 			, writer
 		)
 		values(
-			#{title}
+			(SELECT NVL(MAX(bno),0)+1 FROM simpleboard)
+			, #{title}
 			, #{content}
 			, #{writer}
 		)
  	</insert>
+ 	
+ 	<select id="bnoLast" resultType="com.vam.model.BoardVO">
+		select Max(bno) bno from simpleboard
+ 	</select>
  	
  	<select id="viewList" resultType="com.vam.model.BoardVO">
  		select * from simpleboard order by bno asc
@@ -32,5 +38,7 @@
  	<delete id="delete">
  		delete from simpleboard where bno = #{bno}
  	</delete>
+ 	
+ 	
  	
   </mapper>
