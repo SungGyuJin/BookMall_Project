@@ -39,6 +39,20 @@
  		delete from simpleboard where bno = #{bno}
  	</delete>
  	
+ 	<select id="getListPaging" resultType="com.vam.model.BoardVO">
  	
+ 	<![CDATA[ 
+ 		
+ 		select bno, title, content, writer, regdate, updatedate from(
+ 		
+ 			select /*+INDEX_DESC(simpleboard pk_bno) */ rownum as rn, bno, title, content, writer, regdate, updatedate
+ 			
+ 			from simpleboard where rownum <= #{pageNum} * #{amount})
+ 			
+ 		where rn > (#{pageNum} -1) * #{amount}
+ 		
+ 	]]>
+ 	
+ 	</select>
  	
   </mapper>

@@ -1,12 +1,14 @@
 package com.vam.service;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import com.vam.model.BoardVO;
+import com.vam.model.Criteria;
 
 import lombok.extern.log4j.Log4j;
 
@@ -50,10 +52,20 @@ public class BoardServiceTests {
 //		log.info("result : " + result);
 //	}
 	
+//	@Test
+//	public void testDelete() {
+//		
+//		int result = service.delete(22);
+//		log.info("result : " + result);
+//	}
+	
 	@Test
-	public void testDelete() {
+	public void testGetListPaging() {
 		
-		int result = service.delete(22);
-		log.info("result : " + result);
+		Criteria cri = new Criteria();
+		
+		List<?> list = service.getListPaging(cri);
+		
+		list.forEach(board -> log.info("" + board));
 	}
 }

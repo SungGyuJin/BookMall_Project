@@ -3,6 +3,7 @@ package com.vam.service;
 import java.util.List;
 
 import com.vam.model.BoardVO;
+import com.vam.model.Criteria;
 
 public interface BoardService {
 	
@@ -23,5 +24,8 @@ public interface BoardService {
 	
 	// 게시판번호(마지막)
 	public int bnoLast();
+	
+	// 게시판 페이징
+	public List<BoardVO> getListPaging(Criteria cri);
 	
 }
