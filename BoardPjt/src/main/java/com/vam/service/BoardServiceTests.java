@@ -68,4 +68,5 @@ public class BoardServiceTests {
 		
 		list.forEach(board -> log.info("" + board));
 	}
+	
 }

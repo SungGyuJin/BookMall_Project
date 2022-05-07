@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.vam.model.BoardVO;
+import com.vam.model.Criteria;
 import com.vam.service.BoardService;
 
 import lombok.extern.log4j.Log4j;
@@ -21,15 +22,23 @@ public class BoardController {
 	@Autowired
 	private BoardService bservice;
 	
-	@GetMapping("list")
-	// RequestMapping(value="list", method=RequestMethod.GET)
-	public String BoardListGET(Model model) {
+//	@GetMapping("list")
+//	// RequestMapping(value="list", method=RequestMethod.GET)
+//	public String BoardListGET(Model model) {
+//		
+//		model.addAttribute("list", bservice.viewList());
+//		
+//		log.info("목록페이지 진입");
+//		
+//		return "board/list";
+//	}
+	
+	@GetMapping("/list")
+	public void boardListGET(Model model, Criteria cri) {
 		
-		model.addAttribute("list", bservice.viewList());
+		log.info("boardListGET");
 		
-		log.info("목록페이지 진입");
-		
-		return "board/list";
+		model.addAttribute("list", bservice.getListPaging(cri));
 	}
 	
 	@GetMapping("/enroll")
@@ -43,7 +52,6 @@ public class BoardController {
 	public String boardEnrollPOST(BoardVO board, RedirectAttributes rttr) {
 		
 		log.info("BoardVO : " + board);
-		
 		
 		bservice.enroll(board);
 		
