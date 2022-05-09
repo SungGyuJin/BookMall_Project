@@ -38,7 +38,11 @@
  	<delete id="delete">
  		delete from simpleboard where bno = #{bno}
  	</delete>
- 	
+	
+	<select id="getTotal" resultType="int">
+		select count(*) from simpleboard
+	</select>
+	 	
  	<select id="getListPaging" resultType="com.vam.model.BoardVO">
  	
  	<![CDATA[ 

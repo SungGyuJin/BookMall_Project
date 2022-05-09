@@ -28,4 +28,7 @@ public interface BoardService {
 	// 게시판 페이징
 	public List<BoardVO> getListPaging(Criteria cri);
 	
+	// 게시판 총 개수
+	public int getTotal();
+	
 }
