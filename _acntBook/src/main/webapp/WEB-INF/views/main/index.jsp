@@ -18,7 +18,8 @@
 				<th>내용</th>
 			</tr>
 		</thead>
-		<tbody> 
+		<tbody>
+		
 			<c:forEach items="${cont }" var="list">
 				<tr>
 					<td><c:out value="${list.income }" /></td>

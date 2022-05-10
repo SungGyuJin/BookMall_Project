@@ -38,9 +38,8 @@ public class AcntController {
 	public String indexPage(Model model, AcntVO avo) {
 		
 		cal.set(year, month, 1); 
-
-		int lastDate = cal.getActualMaximum(Calendar.DAY_OF_MONTH); // 세팅된 달력의 말일자
 		
+		int lastDate = cal.getActualMaximum(Calendar.DAY_OF_MONTH); // 세팅된 달력의 말일자
 
 		model.addAttribute("cont", mapper.contentView(avo));
 
