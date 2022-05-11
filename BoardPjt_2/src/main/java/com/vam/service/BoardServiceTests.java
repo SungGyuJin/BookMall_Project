@@ -18,15 +18,28 @@ public class BoardServiceTests {
 	@Autowired
 	private BoardService service;
 	
+	// 등록테스트
+//	@Test
+//	public void reg(BoardVO board) {
+//		
+//		BoardVO vo = new BoardVO();
+//		
+//		vo.setTitle("서비스1");
+//		vo.setContent("서비스1");
+//		vo.setWriter("서비스1");
+//		
+//		service.reg(board);
+//	}
+	
+	// 상세조회 테스트
 	@Test
-	public void reg(BoardVO board) {
+	public void List() {
 		
-		BoardVO vo = new BoardVO();
+		int bno = 3;
 		
-		vo.setTitle("서비스1");
-		vo.setContent("서비스1");
-		vo.setWriter("서비스1");
+		service.detailList(bno);
 		
-		service.reg(board);
 	}
+	
+	
 }

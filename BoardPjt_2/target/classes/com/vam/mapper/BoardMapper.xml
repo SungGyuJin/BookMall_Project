@@ -20,5 +20,12 @@
 	<select id="boardList" resultType="com.vam.model.BoardVO">
 		select * from simpleboard_2
 	</select>
- 
+	
+	<select id="detailList" resultType="com.vam.model.BoardVO">
+		select * from simpleboard_2 where bno = #{bno}
+	</select>
+ 	
+ 	<update id="boardUpdate">
+ 		update simpleboard_2 set title = #{title}, content = #{content}, updatedate = sysdate where bno = #{bno}
+ 	</update>
   </mapper>

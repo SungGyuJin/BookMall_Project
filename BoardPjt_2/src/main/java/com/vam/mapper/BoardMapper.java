@@ -11,4 +11,7 @@ public interface BoardMapper {
 	
 	// 조회
 	public List<BoardVO> boardList();
+	
+	// 상세조회
+	public BoardVO detailList(int bno);
 }

@@ -25,7 +25,7 @@
 			<c:forEach items="${list }" var="obj">
 				<tr>
 					<td><c:out value="${obj.bno }"/></td>
-					<td><c:out value="${obj.title }"/></td>
+					<td><a href="/board/detail?bno=${obj.bno}"><c:out value="${obj.title }"/></a></td>
 					<td><c:out value="${obj.content }"/></td>
 					<td><c:out value="${obj.writer }"/></td>
 					<td><fmt:formatDate value="${obj.regdate }" pattern="yyyy-MM-dd"/>
@@ -35,6 +35,7 @@
 		</tbody>
 	</table>
 	
-	<a href="/board/reg">등록</a>
+	<a href="/board/reg">등록</a><br>
+	<a href="/">HOME</a>
 </body>
 </html>

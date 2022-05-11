@@ -12,10 +12,22 @@
 <h1>등록</h1>
 
 <form action="/board/reg" method="post">
-	제목: <input id="title" name="title" /> <br>
-	내용: <input id="content" name="content" /> <br>
-	작성자: <input id="writer" name="writer" /> <br>
+<table border="1">
+	<tr>
+		<td>제목</td>
+		<td><input id="title" name="title" /></td>
+	</tr>
+	<tr>
+		<td>내용</td>
+		<td><textarea rows="5" name="content"></textarea></td>
+	</tr>
+	<tr>
+		<td>작성자</td>
+		<td><input id="writer" name="writer" /></td>
+	</tr>
+</table>
 	<button>등록</button>
 </form>
+<a href="/board/list">리스트</a>
 </body>
 </html>

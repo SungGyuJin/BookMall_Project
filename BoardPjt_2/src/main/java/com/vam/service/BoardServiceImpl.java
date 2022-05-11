@@ -14,15 +14,24 @@ public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardMapper mapper;
 	
+	// 등록
 	@Override
 	public void reg(BoardVO board) {
 		
 		mapper.reg(board);
 	}
 	
+	// 조회
 	@Override
 	public List<BoardVO> boardList(){
 		
 		return mapper.boardList();
+	}
+	
+	// 상세조회
+	@Override
+	public BoardVO detailList(int bno) {
+		
+		return mapper.detailList(bno);
 	}
 }

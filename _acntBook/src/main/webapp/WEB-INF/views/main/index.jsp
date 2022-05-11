@@ -19,7 +19,6 @@
 			</tr>
 		</thead>
 		<tbody>
-		
 			<c:forEach items="${cont }" var="list">
 				<tr>
 					<td><c:out value="${list.income }" /></td>

@@ -38,4 +38,12 @@ public class BoardController {
 		return "board/list";
 	}
 	
+	@GetMapping("/detail")
+	public void detailList(Model model, int bno) {
+		
+		model.addAttribute("detail", bservice.detailList(bno));
+		
+	}
+	
+	
 }
