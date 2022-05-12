@@ -19,7 +19,7 @@
 	</tr>
 	<tr>
 		<td>내용</td>
-		<td><textarea rows="5" name="content"></textarea></td>
+		<td><textarea rows="5" id="content" name="content"></textarea></td>
 	</tr>
 	<tr>
 		<td>작성자</td>
