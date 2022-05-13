@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>리스트</h1>
+<h1>목록페이지</h1>
 	<table border="1" style="text-align: center;">
 		<thead>
 			<tr>

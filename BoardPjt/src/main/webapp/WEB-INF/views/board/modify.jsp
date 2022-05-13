@@ -7,7 +7,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
 <style type="text/css">
 .input_wrap{
 	padding: 5px 20px;
@@ -49,6 +48,7 @@ textarea{
 	background-color: pink;
 }
 </style>
+</head>
 <body>
 <div class="table table-info table-hover">
 <h1>수정페이지</h1>

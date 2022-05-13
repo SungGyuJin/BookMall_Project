@@ -63,7 +63,6 @@
 			<td><input type="button" class="btnNum" id="result" value="=" onClick="calc('=')" /></td>
 		</tr>
 	</table>
-	
 <script type="text/javascript">
 	
 	var btn_one = document.querySelector("#btn_one");

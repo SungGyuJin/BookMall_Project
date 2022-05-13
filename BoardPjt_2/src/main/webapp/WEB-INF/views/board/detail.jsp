@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>상세리스트</h1>
+<h1>상세페이지</h1>
 <table border="1" style="text-align: center;">
 	<tr>
 		<td>게시글 번호</td>
@@ -31,13 +31,15 @@
 	</tr>
 	<tr>
 		<td>등록일</td>
-		<td><input name="regdate" readonly="readonly" value='<fmt:formatDate value="${detail.regdate }"/>' /></td>
+		<td><input name="regdate" readonly="readonly" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${detail.regdate }"/>' /></td>
 	</tr>
 	<tr>
 		<td>수정일</td>
-		<td><input name="updatedate" readonly="readonly" value='<fmt:formatDate value="${detail.updatedate }"/>' /></td>
+		<td><input name="updatedate" readonly="readonly" value='<fmt:formatDate pattern="yyyy-MM-dd" value="${detail.updatedate }"/>' /></td>
 	</tr>
 </table>
-<a href="/board/list">리스트</a>
+<br>
+<a href="/board/list">리스트</a>&nbsp;
+<a href="/board/modify?bno=${detail.bno}">수정하기</a>
 </body>
 </html>
