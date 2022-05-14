@@ -18,24 +18,35 @@ public class BoardMapperTests {
 	@Autowired
 	private BoardMapper mapper;
 	
+	@Test
+	public void regTest() {
+		
+		BoardVO bvo = new BoardVO();
+		
+		bvo.setTitle("제목1");
+		bvo.setContent("내용1");
+		bvo.setWriter("작성자1");
+		
+		mapper.reg(bvo);
+	}
+	
 //	@Test
-//	public void regTest() {
+//	public void detailList() {
 //		
-//		BoardVO bvo = new BoardVO();
+//		int bno = 1;
 //		
-//		bvo.setTitle("제목1");
-//		bvo.setContent("내용1");
-//		bvo.setWriter("작성자1");
-//		
-//		mapper.reg(bvo);
+//		log.info("" + mapper.detailList(bno));
 //	}
 	
 	@Test
-	public void detailList() {
+	public void del() {
 		
-		int bno = 1;
+		int bno = 5;
 		
-		log.info("" + mapper.detailList(bno));
+		int result = mapper.boardDelete(bno);
+		
+		log.info("reuslt: " + result);
+		
 	}
 	
 }

@@ -81,18 +81,50 @@ textarea{
 	</tr>
 </table>
 <div class="btn_wrap">
-	<a class="btn" id="modify_btn">수정완료</a>
-	<a class="btn" href="/board/list">리스트</a>
+	<a class="btn" id="btn_modify">수정완료</a>
+	<a class="btn" id="btn_list">목록페이지</a>
+	<a class="btn" id="btn_delete">삭제하기</a>
+	<a class="btn" id="btn_cancel">취소</a>
 </div>
+</form>
+
+<form id="moveForm" action="/board/modify" method="get">
+	<input type="hidden" id="bno" name="bno" value='<c:out value="${detail.bno}"/>'>
 </form>
 <br>
 
 <script>
-	let mform = $("#modifyForm");
 	
-	$("#modify_btn").on("click", function(e){
+	let modifyForm = $("#modifyForm"); // 수정완료 폼
+	let moveForm = $("#moveForm"); // 그 외 다른 버튼
+
+	// 수정완료 버튼
+	$("#btn_modify").on("click", function(e){
 		
-		mform.submit();
+		modifyForm.submit();
+	});
+	
+	// 목록페이지 이동버튼
+	$("#btn_list").on("click", function(e){
+		
+		moveForm.find("#bno").remove();
+		moveForm.attr("action", "/board/list");
+		moveForm.submit();
+	});
+	
+	// 삭제버튼
+	$("#btn_delete").on("click", function(e){
+		
+		moveForm.attr("action", "/board/delete");
+		moveForm.attr("method", "post");
+		moveForm.submit();
+	});
+	
+	// 취소버튼
+	$("#btn_cancel").on("click", function(e){
+		
+		moveForm.attr("action", "/board/detail");
+		moveForm.submit();
 	});
 </script>
 </body>

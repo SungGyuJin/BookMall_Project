@@ -17,4 +17,7 @@ public interface BoardService {
 	
 	// 수정
 	public int boardUpdate(BoardVO board);
+	
+	// 삭제
+	public int boardDelete(int bno);
 }

@@ -28,7 +28,7 @@ public class DataSourceTest {
 		try (
 				Connection con = dataSource.getConnection();
 				SqlSession session = sqlSessionFactory.openSession();
-			) {
+				) {
 			
 			System.out.println("con = " + con);
 			System.out.println("session = " + session);

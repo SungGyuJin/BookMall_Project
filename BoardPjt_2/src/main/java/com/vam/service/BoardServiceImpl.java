@@ -40,4 +40,10 @@ public class BoardServiceImpl implements BoardService{
 		
 		return mapper.boardUpdate(board);
 	}
+	
+	@Override
+	public int boardDelete(int bno) {
+		
+		return mapper.boardDelete(bno);
+	}
 }

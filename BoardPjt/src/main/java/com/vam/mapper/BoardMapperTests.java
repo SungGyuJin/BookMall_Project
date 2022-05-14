@@ -53,12 +53,12 @@ public class BoardMapperTests {
 //		log.info("result : " + result);
 //	}
 	
-//	@Test
-//	public void testDelete() {
-//		
-//		int result = mapper.delete(21);
-//		log.info("result : " + result);
-//	}
+	@Test
+	public void testDelete() {
+		
+		int result = mapper.delete(21);
+		log.info("result : " + result);
+	}
 	
 	@Test
 	public void testGetListPaging() {

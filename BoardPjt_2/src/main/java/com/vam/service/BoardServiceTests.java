@@ -32,13 +32,22 @@ public class BoardServiceTests {
 //	}
 	
 	// 상세조회 테스트
+//	@Test
+//	public void List() {
+//		
+//		int bno = 3;
+//		
+//		service.detailList(bno);
+//		
+//	}
+	
+	// 삭제
 	@Test
-	public void List() {
+	public void delTest() {
 		
 		int bno = 3;
 		
-		service.detailList(bno);
-		
+		service.boardDelete(bno);
 	}
 	
 	
