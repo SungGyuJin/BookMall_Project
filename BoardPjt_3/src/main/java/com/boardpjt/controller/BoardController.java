@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.boardpjt.model.BoardVO;
@@ -23,11 +24,16 @@ public class BoardController {
 		
 	}
 	
-//	@GetMapping("/regPage")
-//	public String boardRegPage(BoardVO bvo) {
-//		
-//		
-//		
-//		return "redirect:/board/regPage";
-//	}
+	@GetMapping("/regPage")
+	public void boardRegGET() {
+		
+	}
+	
+	@PostMapping("/regPage")
+	public String boardRegPOST(BoardVO bvo) {
+		
+		bservice.boardReg(bvo);
+		
+		return "redirect:/board/listPage";
+	}
 }

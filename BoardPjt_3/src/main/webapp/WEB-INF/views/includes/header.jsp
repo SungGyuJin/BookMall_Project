@@ -10,6 +10,8 @@
 </head>
 <body>
 <h1>Header</h1>
+<a href="/board/listPage">목록페이지</a>&nbsp;
+<a href="/board/regPage">등록하기</a>
 <hr>
 
 
