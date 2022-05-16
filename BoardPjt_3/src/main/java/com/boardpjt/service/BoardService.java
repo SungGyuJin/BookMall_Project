@@ -11,6 +11,14 @@ public interface BoardService {
 	
 	// 목록보기 R
 	public List<BoardVO> boardList();
+
+	// 수정하기 U
+	public int boardUpdate(BoardVO bvo);
 	
-	
+	// 삭제하기 D
+	public int boardDel(int bno);
+		
+	// 상세조회
+	public BoardVO detailList(int bno);
+
 }

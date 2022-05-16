@@ -22,4 +22,16 @@
   		)
   	</insert>
   	
+  	<select id="detailList" resultType="com.boardpjt.model.BoardVO">
+  		select * from simpleboard_3 where bno = #{bno}
+  	</select>
+  	
+  	<update id="boardUpdate">
+  		update simpleboard_3 set title = #{title},  content = #{content}, updatedate = sysdate where bno = #{bno}
+  	</update>
+  	
+  	<delete id="boardDel">
+	  	delete from simpleboard_3 where bno = #{bno}
+  	</delete>
+  	
   </mapper>

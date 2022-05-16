@@ -21,7 +21,6 @@ public class BoardController {
 	public void boardListPage(Model model) {
 		
 		model.addAttribute("boardList", bservice.boardList());
-		
 	}
 	
 	@GetMapping("/regPage")
@@ -36,4 +35,33 @@ public class BoardController {
 		
 		return "redirect:/board/listPage";
 	}
+	
+	@GetMapping("/detailPage")
+	public void detailPage(Model model, int bno) {
+		
+		model.addAttribute("detailList", bservice.detailList(bno));
+	}
+	
+	@GetMapping("/modifyPage")
+	public void updatePage(Model model, int bno) {
+		
+		model.addAttribute("modify", bservice.detailList(bno));
+	}
+	
+	@PostMapping("/modifyPage")
+	public String updatePagePOST(BoardVO bvo) {
+		
+		bservice.boardUpdate(bvo);
+		
+		return "redirect:/board/listPage";
+	}
+	
+	@PostMapping("/del")
+	public String boardDelPOST(int bno) {
+		
+		bservice.boardDel(bno);
+		
+		return "redirect:/board/listPage";
+	}
+	
 }
