@@ -33,7 +33,7 @@ public class AcntController {
 		
 		return "home";
 	}
-	
+
 	@RequestMapping("main/index")
 	public String indexPage(Model model, AcntVO avo) {
 		

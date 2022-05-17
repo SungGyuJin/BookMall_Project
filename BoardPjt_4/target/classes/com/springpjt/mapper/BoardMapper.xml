@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  <mapper namespace="com.springpjt.mapper.BoardMapper">
+  
+  	<select id="boardListPage" resultType="com.springpjt.model.BoardVO">
+  		Select * from simpleboard_4
+  	</select>
+  	
+  	<insert id="boardRegPage">
+  		Insert into simpleboard_4(
+  			bno
+  			, title
+  			, content
+  			, writer
+  		)values(
+  			(SELECT NVL(MAX(bno),0)+1 FROM simpleboard_4)
+  			, #{title}
+  			, #{content}
+  			, #{writer}
+  		)
+  	</insert>
+  	
+  </mapper>
