@@ -29,7 +29,10 @@ public class BoardController {
 	@PostMapping("/boardReg")
 	public String boardRegPOST(BoardVO bvo) {
 		
+		bs.boardRegPage(bvo);
+		
 		return "redirect:/board/boardList";
 	}
+	
 
 }

@@ -19,5 +19,11 @@ public class BoardServiceImpl implements BoardService{
 		
 		return mapper.boardListPage();
 	}
+
+	@Override
+	public void boardRegPage(BoardVO bvo) {
+		
+		mapper.boardRegPage(bvo);
+	}
 	
 }
