@@ -5,7 +5,11 @@
   <mapper namespace="com.springpjt.mapper.BoardMapper">
   
   	<select id="boardListPage" resultType="com.springpjt.model.BoardVO">
-  		Select * from simpleboard_4
+  		Select * From simpleboard_4
+  	</select>
+  	
+  	<select id="detailPage" resultType="com.springpjt.model.BoardVO">
+  		Select * From simpleboard_4 where bno = #{bno}
   	</select>
   	
   	<insert id="boardRegPage">
@@ -21,5 +25,13 @@
   			, #{writer}
   		)
   	</insert>
+  	
+  	<update id="boardUpdate">
+  		Update simpleboard_4 set title = #{title}, content = #{content}, updatedate = sysdate where bno = #{bno}
+  	</update>
+  	
+  	<delete id="boardDelete">
+  		Delete From simpleboard_4 where bno = #{bno}
+  	</delete>
   	
   </mapper>

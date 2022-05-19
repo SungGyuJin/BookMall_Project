@@ -34,5 +34,33 @@ public class BoardController {
 		return "redirect:/board/boardList";
 	}
 	
+	@GetMapping("/boardDetail")
+	public void detailMove(Model model, int bno) {
+
+		model.addAttribute("detailPage", bs.detailPage(bno));
+	}
+	
+	@GetMapping("/boardUpdate")
+	public void boardUpdateGET(Model model, int bno) {
+		
+		model.addAttribute("detailPage", bs.detailPage(bno));
+	}
+	
+	@PostMapping("/boardUpdate")
+	public String boarUpdatePOST(BoardVO bvo) {
+		
+		bs.boardUpdate(bvo);
+		
+		return "redirect:/board/boardList";
+	}
+	
+	@PostMapping("/del")
+	public String boardDel(int bno) {
+		
+		bs.boardDelete(bno);
+		
+		return "redirect:/board/boardList";
+	}
+	
 
 }

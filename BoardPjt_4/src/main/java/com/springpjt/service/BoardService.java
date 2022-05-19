@@ -11,4 +11,14 @@ public interface BoardService {
 	
 	// 등록 C
 	public void boardRegPage(BoardVO bvo);
+
+	// 상세조회
+	public BoardVO detailPage(int bno);
+	
+	// 수정 U
+	public int boardUpdate(BoardVO bvo);
+		
+	// 삭제 D
+	public int boardDelete(int bno);
+	
 }

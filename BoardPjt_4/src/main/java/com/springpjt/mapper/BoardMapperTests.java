@@ -21,15 +21,16 @@ public class BoardMapperTests {
 //		mapper.boardListPage();
 //	}
 	
-	@Test
-	public void regTests() {
-		
-		BoardVO bvo = new BoardVO();
-		
-		bvo.setTitle("제목");
-		bvo.setContent("내용");
-		bvo.setWriter("작성자");
-		
-		mapper.boardRegPage(bvo);
-	}
+//	@Test
+//	public void regTests() {
+//		
+//		BoardVO bvo = new BoardVO();
+//		
+//		bvo.setTitle("제목");
+//		bvo.setContent("내용");
+//		bvo.setWriter("작성자");
+//		
+//		mapper.boardRegPage(bvo);
+//	}
+	
 }

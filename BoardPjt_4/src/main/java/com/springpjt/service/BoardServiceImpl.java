@@ -25,5 +25,23 @@ public class BoardServiceImpl implements BoardService{
 		
 		mapper.boardRegPage(bvo);
 	}
+
+	@Override
+	public BoardVO detailPage(int bno) {
+
+		return mapper.detailPage(bno);
+	}
+
+	@Override
+	public int boardUpdate(BoardVO bvo) {
+		
+		return mapper.boardUpdate(bvo);
+	}
+
+	@Override
+	public int boardDelete(int bno) {
+
+		return mapper.boardDelete(bno);
+	}
 	
 }
