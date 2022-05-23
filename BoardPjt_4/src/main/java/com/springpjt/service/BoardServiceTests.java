@@ -24,7 +24,7 @@ public class BoardServiceTests {
 	@Test
 	public void regTest() {
 		
-		BoardVO bvo = new BoardVO();
+		BoardVO bvo = new BoardVO(); 
 		
 		bvo.setTitle("서비스 테스트 제목");
 		bvo.setContent("서비스 테스트 내용");
