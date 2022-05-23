@@ -60,7 +60,6 @@
 
 	// 삭제
 	$("#btn_delete").on("click", function(e){
-		
 		mFm.attr("action", "/board/delete");
 		mFm.attr("method", "post");
 		alert("삭제완료!!");
