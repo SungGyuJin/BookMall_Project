@@ -53,7 +53,6 @@
 
 	// 수정완료
 	$("#btn_modify").on("click", function(e){
-		
 		alert("수정완료!!");
 		postFm.submit();
 	});
