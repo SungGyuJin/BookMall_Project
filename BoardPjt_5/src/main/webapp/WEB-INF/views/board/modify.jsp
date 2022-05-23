@@ -68,7 +68,6 @@
 	
 	// 목록페이지
 	$("#btn_list").on("click", function(e){
-		
 		mFm.find("#bno").remove();
 		mFm.attr("action", "/board/list");
 		mFm.submit();
