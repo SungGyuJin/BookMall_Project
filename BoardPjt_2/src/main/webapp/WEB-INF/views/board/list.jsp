@@ -37,5 +37,14 @@
 	
 	<a href="/board/reg">등록</a><br>
 	<a href="/">HOME</a>
+	
+	<div class="list_wrap">
+		
+	</div>
+	
+<script>
+
+	
+</script>
 </body>
 </html>

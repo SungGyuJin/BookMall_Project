@@ -32,4 +32,8 @@
  	<delete id="boardDelete">
  		delete from simpleboard_2 where bno = #{bno}
  	</delete>
+ 	
+ 	<select id="getTotal" resultType="int">
+ 		Select count(*) From simpleboard_2
+ 	</select>
   </mapper>

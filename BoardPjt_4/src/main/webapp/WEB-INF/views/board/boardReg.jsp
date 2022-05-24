@@ -31,7 +31,7 @@
 		<td><input name="writer" />
 	</tr>
 	<tr>
-		<td colspan="2" style="background-color: pink; text-align: center;">
+		<td colspan="2" style="background-color: pink; text-align: center;"> 
 			<a class="btn" id="btn_reg">등록</a>
 		</td>
 	</tr>
@@ -47,7 +47,6 @@
 		regForm.attr("method", "post");
 		regForm.submit();
 	});
-	
 	
 </script>
 </body>

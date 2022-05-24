@@ -21,4 +21,8 @@ public interface BoardMapper {
 	// 상세조회
 	public BoardVO detailList(int bno);
 	
+	// 한 페이지에 보이는 게시판 총 갯수
+	public int getTotal();
+	
+	
 }

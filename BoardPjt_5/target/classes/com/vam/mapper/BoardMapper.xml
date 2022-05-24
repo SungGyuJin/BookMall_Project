@@ -33,4 +33,5 @@
   	<delete id="boardDel">
   		Delete From simpleboard_5 where bno = #{bno}
   	</delete>
+  	
   </mapper>

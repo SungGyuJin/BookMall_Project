@@ -43,7 +43,6 @@ public class BoardController {
 	public void detailList(Model model, int bno) {
 		
 		model.addAttribute("detail", bservice.detailList(bno));
-		
 	}
 	
 	@GetMapping("/modify")
