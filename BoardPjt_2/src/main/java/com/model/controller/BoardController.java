@@ -6,17 +6,28 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.vam.model.BoardVO;
+import com.vam.model.Criteria;
 import com.vam.service.BoardService;
+
+import lombok.extern.log4j.Log4j;
 
 @Controller
 @RequestMapping("/board/*")
+@Log4j
 public class BoardController {
 	
 	@Autowired
 	private BoardService bservice;
+	
+	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	public void mainPageGET() {
+		
+		log.info("메인 진입");
+	}
 	
 	@GetMapping("/reg")
 	public void boardRegGET() {
@@ -32,7 +43,7 @@ public class BoardController {
 	}
 	
 	@GetMapping("/list")
-	public String boardListPage(Model model) {
+	public String boardListPage(Model model, Criteria cri) {
 		
 		model.addAttribute("list", bservice.boardList());
 		
