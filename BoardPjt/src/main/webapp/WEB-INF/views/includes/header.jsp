@@ -9,7 +9,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h1>Header</h1>
+<a href="/">HOME</a>
+<a href="/main">Main</a>
+<a href="/board/enroll">등록하기</a>
+<hr>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>

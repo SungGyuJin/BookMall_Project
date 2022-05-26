@@ -36,8 +36,6 @@
 <body>
 	<div class="table table-info table-hover">
 	<h1>목록페이지</h1>
-	<a href="/board/enroll">등록하기</a>
-	<hr>
 	<table id="tab" border="1">
 		<thead>
 			<tr>
