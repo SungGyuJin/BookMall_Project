@@ -6,4 +6,7 @@ public interface MemberMapper {
 
 	// 회원가입
 	public void memberJoin(MemberVO member);
+	
+	// ID 중복검사
+	public int idCheck(String memberId);
 }

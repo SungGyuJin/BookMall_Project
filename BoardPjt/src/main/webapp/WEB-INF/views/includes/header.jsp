@@ -14,6 +14,10 @@
 <a href="/main">Main</a>
 <a href="/board/enroll">등록하기</a>
 <hr>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous">
+</script>
 </body>
 </html>

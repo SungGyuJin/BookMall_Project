@@ -16,19 +16,29 @@ public class MemberMapperTests {
 	private MemberMapper membermapper;
 	
 	// 회원가입 쿼리 테스트 메서트
+//	@Test
+//	public void memberJoin() throws Exception{
+//		
+//		MemberVO member = new MemberVO();
+//		
+//		member.setMemberId("sys");
+//		member.setMemberPw("1234");
+//		member.setMemberName("spring_join_test");
+//		member.setMemberMail("spring_join_test");
+//		member.setMemberAddr1("spring_join_test");
+//		member.setMemberAddr2("spring_join_test");
+//		member.setMemberAddr3("spring_join_test");
+//		
+//		membermapper.memberJoin(member);
+//	}
+	
 	@Test
-	public void memberJoin() throws Exception{
+	public void memberIdChk() throws Exception{
 		
-		MemberVO member = new MemberVO();
+		String id = "admin"; // 존재 O
+		String id2 = "test123"; // 존재 X
 		
-		member.setMemberId("sys");
-		member.setMemberPw("1234");
-		member.setMemberName("spring_join_test");
-		member.setMemberMail("spring_join_test");
-		member.setMemberAddr1("spring_join_test");
-		member.setMemberAddr2("spring_join_test");
-		member.setMemberAddr3("spring_join_test");
-		
-		membermapper.memberJoin(member);
+		membermapper.idCheck(id);
+		membermapper.idCheck(id2);
 	}
 }

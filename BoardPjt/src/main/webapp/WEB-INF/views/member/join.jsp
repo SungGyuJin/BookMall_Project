@@ -103,14 +103,32 @@
 		// console.log("keyup 테스트");
 		
 		var memberId = $('.id_input').val();   // .id_input에 입력되는 값
-		var data = {memberId: memberId}        // controller에 넘길 데이터 이름 : 데이터(.id_input에 입력 되는 값)
+		var data = {memberId : memberId};       // controller에 넘길 데이터 이름 : 데이터(.id_input에 입력 되는 값)
 		
 		$.ajax({
 			
-			type: "post";
-			url: "/member/memberIdChk";
-			date: data
-		}); // 종료
+			type : "post",
+			url : "/member/memberIdChk",
+			data : data,
+			success : function(result){
+				
+				// console.log("성공여부 : " + result);
+				
+				if(result != 'fail'){
+					
+					$('.id_input_re_1').css("display", "inline-block");
+					$('.id_input_re_2').css("display", "none");
+					
+				}else{
+					
+					$('.id_input_re_2').css("display", "inline-block");
+					$('.id_input_re_1').css("display", "none");
+					
+				}
+				
+			}// success 종료
+			
+		});// 에이작스 종료
 		
 	});
 	

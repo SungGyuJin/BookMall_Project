@@ -19,4 +19,8 @@
 			, 5000
 		)
 	</insert>
+	
+	<select id="idCheck" resultType="int">
+		Select count(*) From book_member where memberId = #{memberId}
+	</select>
   </mapper>
