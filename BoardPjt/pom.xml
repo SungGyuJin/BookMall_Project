@@ -197,6 +197,7 @@
 		    <artifactId>log4j-core</artifactId>
 		    <version>2.0.1</version>
 		</dependency>
+		<!-- stmp 메일 전송 관련 라이브러리 -->
 		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
 		    <groupId>javax.mail</groupId>
