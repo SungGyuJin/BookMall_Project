@@ -1,6 +1,12 @@
 package com.vam.controller;
 
+import java.util.Random;
+
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +24,9 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberservice;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 
 	// 가입페이지 이동
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
@@ -65,9 +74,47 @@ public class MemberController {
 			return "success"; // 중복아이디 존재 X
 		}
 		
+	} // memberIdChkPOST() 종료
+	
+	@RequestMapping(value = "/mailCheck", method = RequestMethod.GET)
+	@ResponseBody
+	public void mailCheckGET(String email) throws Exception{
+		
+		// View로부터 넘어온 데이터 확인
+		log.info("이메일 데이터 전송 확인");
+		log.info("인증번호: " + email);
+		
+		// 인증번호
+		Random random = new Random();
+		int checkNum = random.nextInt(888888) + 111111;
+		
+		log.info("인증번호: " + checkNum);
+		
+		String setFrom = "vkdnjwkrk3@naver.com";
+		String toMail = email;
+		String title = "회원가입 인증 이메일 입니다.";
+		String content = 
+				"홈페이지 방문을 환영합니다." +
+				"<br><br>" +
+				"인증번호는 " + checkNum + "입니다." +
+				"<br>" +
+				"인증번호 입력란에 입력해주세요.";
+		
+		try {
+			
+			MimeMessage message = mailSender.createMimeMessage();
+			MimeMessageHelper helper = new MimeMessageHelper(message, true, "utf-8");
+			helper.setFrom(setFrom);
+			helper.setTo(toMail);
+			helper.setSubject(title);
+			helper.setText(content, true);
+			mailSender.send(message);
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
 		
 	}
-	
 	
 	
 	

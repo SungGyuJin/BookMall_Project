@@ -49,8 +49,8 @@
 										<input class="mail_input" name="memberMail" />
 								</div>
 								<div class="mail_check_wrap">
-										<div class="mail_check_input_box">
-												<input class="mail_check_input" />
+										<div class="mail_check_input_box" id="mail.check.input_box_false">
+												<input class="mail_check_input" disabled="disabled" />
 										</div>
 										<div class="mail_check_button">
 												<span>인증번호 전송</span>
@@ -130,6 +130,18 @@
 			
 		});// 에이작스 종료
 		
+	});
+	
+	$(".mail_check_button").click(function(){
+		
+		
+		var email = $(".mail_input").val(); // 입력메일
+		
+		$.ajax({
+			
+			type: "GET",
+			url: "mailCheck?email=" + email
+		});
 	});
 	
 	
