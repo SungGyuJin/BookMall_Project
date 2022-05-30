@@ -49,13 +49,14 @@
 										<input class="mail_input" name="memberMail" />
 								</div>
 								<div class="mail_check_wrap">
-										<div class="mail_check_input_box" id="mail.check.input_box_false">
+										<div class="mail_check_input_box" id="mail_check_input_box_false">
 												<input class="mail_check_input" disabled="disabled" />
 										</div>
 										<div class="mail_check_button">
 												<span>인증번호 전송</span>
 										</div>
 										<div class="clearfix"></div>
+										<span id="mail_check_input_box_warn"></span>
 								</div>
 						</div>
 						<div class="address_wrap">
@@ -88,6 +89,9 @@
 </div>
 
 <script>
+
+	var code = ""; // 이메일전송 인증번호 저장코드
+
 	$(document).ready(function(){
 		
 		$(".join_button").click(function(){
@@ -102,11 +106,10 @@
 		
 		// console.log("keyup 테스트");
 		
-		var memberId = $('.id_input').val();   // .id_input에 입력되는 값
+		var memberId = $('.id_input').val();   	// .id_input에 입력되는 값
 		var data = {memberId : memberId};       // controller에 넘길 데이터 이름 : 데이터(.id_input에 입력 되는 값)
 		
 		$.ajax({
-			
 			type : "post",
 			url : "/member/memberIdChk",
 			data : data,
@@ -118,11 +121,12 @@
 					
 					$('.id_input_re_1').css("display", "inline-block");
 					$('.id_input_re_2').css("display", "none");
-					
+					 
 				}else{
 					
 					$('.id_input_re_2').css("display", "inline-block");
 					$('.id_input_re_1').css("display", "none");
+					code = data;
 					
 				}
 				
@@ -134,14 +138,40 @@
 	
 	$(".mail_check_button").click(function(){
 		
-		
-		var email = $(".mail_input").val(); // 입력메일
+		var email = $(".mail_input").val(); 		// 입력메일
+		var checkBox = $(".mail_check_input");		// 인증번호 입력한
+		var boxWrap = $(".mail_check_input_box"); 	// 인증번호 입력란 박스
 		
 		$.ajax({
 			
 			type: "GET",
-			url: "mailCheck?email=" + email
+			url: "mailCheck?email=" + email,
+			success: function(data){
+				
+				// console.log("data : " + data);
+				checkBox.attr("disabled",false);
+				boxWrap.attr("id", "mail_check_input_box_true");
+				code = data;
+			}
 		});
+	});
+	
+	// 인증번호 비교
+	$(".mail_check_input").blur(function(){
+		
+		var inputCode = $(".mail_check_input").val(); 		// 입력코드
+		var checkResult = $("#mail_check_input_box_warn");  // 비교 결과
+							  
+		if(inputCode == code){  							// 일치하는 경우
+			checkResult.html("인증번호가 일치합니다.");
+			checkResult.attr("class", "correct");
+			console.log("일치.");
+		}else{												// 일치하지 않는 경우
+			checkResult.html("인증번호를 다시 확인해주세요.");
+			checkResult.attr("class", "incorrect");
+			console.log("불일치.");
+		}
+		
 	});
 	
 	
