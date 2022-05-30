@@ -3,12 +3,6 @@
 	margin: 0;
 	padding:0;
 }
-.correct{
-	color : green;	
-}
-.incorrect{
-	color : red;
-}
 /* 화면 전체 렙 */
 .wrapper{
 	width: 1900px;	
@@ -186,6 +180,12 @@
     font-weight: 900;
     background-color: #ececf7;
     cursor: pointer;
+}
+.correct{
+	color : green;	
+}
+.incorrect{
+	color : red;
 }
 /* 주소 영역 */
 .address_wrap{
