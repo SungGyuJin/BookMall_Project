@@ -5,6 +5,15 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style>
+	table{
+		margin: auto;
+		text-align: center;
+	}
+	h1, h2, h3{
+		text-align: center;
+	}
+</style>
 </head>
 <body>
 <header>

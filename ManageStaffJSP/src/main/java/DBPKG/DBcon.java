@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class DBcon {
 	
-	public static Connection getConnectino() throws Exception  {
+	public static Connection getConnection() throws Exception  {
 		
 		Class.forName("oracle.jdbc.OracleDriver");
 		Connection con = DriverManager.getConnection(

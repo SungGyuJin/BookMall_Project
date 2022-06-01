@@ -6,7 +6,7 @@ public class DBTests {
 
 	public static void main(String[] args) throws Exception {
 		
-		Connection con = DBcon.getConnectino();
+		Connection con = DBcon.getConnection();
 	}
 
 }
