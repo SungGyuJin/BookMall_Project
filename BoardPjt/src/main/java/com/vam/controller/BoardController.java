@@ -20,6 +20,7 @@ import lombok.extern.log4j.Log4j;
 @Log4j
 public class BoardController {
 	
+	
 	@Autowired
 	private BoardService bservice;
 	
@@ -33,7 +34,6 @@ public class BoardController {
 //		
 //		return "board/list";
 //	}
-	
 	@GetMapping("/list")
 	public void boardListGET(Model model, Criteria cri) {
 		
