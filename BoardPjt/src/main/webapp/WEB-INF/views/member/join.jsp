@@ -24,30 +24,35 @@
 								</div>
 								<span class="id_input_re_1">사용 가능한 아이디입니다.</span>
 								<span class="id_input_re_2">아이디가 이미 존재합니다</span>
+								<span class="final_id_ck">아이디를 입력해주세요.</span>
 						</div>
 						<div class="pw_wrap">
 								<div class="pw_name">비밀번호</div>
 								<div class="pw_input_box">
 										<input class="pw_input" name="memberPw" />
 								</div>
+								<span class="final_pw_ck">비밀번호를 입력해주세요.</span>
 						</div>
 						<div class="pwck_wrap">
 								<div class="pwck_name">비밀번호 확인</div>
 								<div class="pwck_input_box">
 										<input class="pwck_input" />
 								</div>
+								<span class="final_pwck_ck">비밀번호 확인을 입력해주세요.</span>
 						</div>
 						<div class="user_wrap">
 								<div class="user_name">이름</div>
 								<div class="user_input_box">
 										<input class="user_input" name="memberName" />
 								</div>
+								<span class="final_name_ck">이름을 입력해주세요.</span>
 						</div>
 						<div class="mail_wrap">
 								<div class="mail_name">이메일</div>
 								<div class="mail_input_box">
 										<input class="mail_input" name="memberMail" />
 								</div>
+								<span class="final_mail_ck">이메일을 입력해주세요.</span>
 								<div class="mail_check_wrap">
 										<div class="mail_check_input_box" id="mail_check_input_box_false">
 												<input class="mail_check_input" disabled="disabled" />
@@ -63,7 +68,7 @@
 								<div class="address_name">주소</div>
 								<div class="address_input_1_wrap">
 										<div class="address_input_1_box">
-												<input class="address_input_1" name="memberAddr1" disabled="disabled"/>
+												<input class="address_input_1" name="memberAddr1" readonly="readonly" />
 										</div>
 										<div class="address_button" onClick="execution_daum_address()">
 												<span>주소 찾기</span>
@@ -72,14 +77,15 @@
 								</div>
 								<div class="address_input_2_wrap">
 										<div class="address_input_2_box">
-												<input class="address_input_2" name="memberAddr2" disabled="disabled"/>
+												<input class="address_input_2" name="memberAddr2" readonly="readonly" />
 										</div>
 								</div>
 								<div class="address_input_3_wrap">
 										<div class="address_input_3_box">
-												<input class="address_input_3" name="memberAddr3" disabled="disabled"/>
+												<input class="address_input_3" name="memberAddr3" readonly="readonly" />
 										</div>
 								</div>
+								<span class="final_addr_ck">주소를 입력해주세요.</span>
 						</div>
 						<div class="join_button_wrap">
 								<input type="button" class="join_button" value="가입하기" />
@@ -92,13 +98,41 @@
 <script>
 
 	var code = ""; // 이메일전송 인증번호 저장코드
+	
+	// 유효성 변수
+	
+	var idCheck = false;		// ID
+	var idckCheck = false;		// ID 중복검사
+	var pwCheck = false;		// 비밀번호
+	var pwckCheck = false;		// 비밀번호 일치확인
+	var nameCheck = false;		// 이름
+	var mailCheck = false;		// 이메일
+	var mailnumCheck = false; 	// 이메일 인증번호 확인
+	var addressCheck = false;	// 주소
 
 	$(document).ready(function(){
 		
 		$(".join_button").click(function(){
 			
-				$("#join_form").attr("action", "/member/join");
-				$("#join_form").submit();
+				//$("#join_form").attr("action", "/member/join");
+				//$("#join_form").submit();
+				
+				// 입력 값 변수
+				var id = $('.id_input').val();			// ID 입력칸
+				var pw = $('.pw_input').val();			// 비밀번호 입력칸
+				var pwck = $('.pwck_input').val(); 		// 비밀번호 확인 입력칸
+				var name = $('.user_input').val();		// 이름 입력칸
+				var mail = $('.mail_input').val();		// 이메일 입력칸
+				var addr = $('.address_input_3').val();	// 주소 입력칸
+				
+				// ID 유효성 검사
+				if(id == ""){
+					$('.final_id_ck').css('display', 'block');
+					idCheck = false;
+				}else{
+					$('.final_id_ck').css('display', 'none');
+					idCheck = true;
+				}
 		});
 	});
 	
@@ -122,12 +156,14 @@
 					
 					$('.id_input_re_1').css("display", "inline-block");
 					$('.id_input_re_2').css("display", "none");
+					idckCheck = true;
 					 
 				}else{
 					
 					$('.id_input_re_2').css("display", "inline-block");
 					$('.id_input_re_1').css("display", "none");
-					code = data;
+					//code = data;
+					idckCheck = false;
 					
 				}
 				
@@ -136,6 +172,7 @@
 		});// 에이작스 종료
 		
 	});
+	
 	
 	$(".mail_check_button").click(function(){
 		
@@ -212,18 +249,30 @@
 						extraAddr = ' (' + extraAddr + ')';
 					}
 					
-					document.getElementById("sample6_extraAddress").value = extraAddr;
+					// document.getElementById("sample6_extraAddress").value = extraAddr;
+					 addr += extraAddr;
 					
 				}else{
-					document.getElementById("sample6_extraAddress").value = '';
+					// document.getElementById("sample6_extraAddress").value = '';
+					 addr += ' ';
 				}
 				
 				// 우편번호와 주소 정보를 해당 필드에 넣기
-				document.getElementById("sample6_postcode").value = data.zonecode;
-				document.getElementById("sample6_address").value = addr;
+				//document.getElementById("sample6_postcode").value = data.zonecode;
+				//document.getElementById("sample6_address").value = addr;
+				
+				$(".address_input_1").val(data.zonecode);
+				//$("[name=memberAddr1]").val(data.zonecode); // 대체가능
+				$(".address_input_2").val(addr);
+				//$("[name=memberAddr2]").val(addr); // 대체가능
 				
 				// 커서를 상세주소 필드로 이동
-				ddocument.getElementById("sample6_detailAddress").focus();
+				//document.getElementById("sample6_detailAddress").focus();
+				
+				// 상세주소 입력란 disabled 속성 변경 및 커서를 상세주소 필드로 이동한다.
+				
+				$(".address_input_3").attr("readonly", false);
+				$(".address_input_3").focus();
 				
 			}
 			
