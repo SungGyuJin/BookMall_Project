@@ -39,6 +39,8 @@
 										<input class="pwck_input" />
 								</div>
 								<span class="final_pwck_ck">비밀번호 확인을 입력해주세요.</span>
+								<span class="pwck_input_re_1">비밀번호가 일치합니다.</span>
+								<span class="pwck_input_re_2">비밀번호가 일치하지 않습니다.</span>
 						</div>
 						<div class="user_wrap">
 								<div class="user_name">이름</div>
@@ -105,6 +107,7 @@
 	var idckCheck = false;		// ID 중복검사
 	var pwCheck = false;		// 비밀번호
 	var pwckCheck = false;		// 비밀번호 일치확인
+	var pwckcorCheck = false;
 	var nameCheck = false;		// 이름
 	var mailCheck = false;		// 이메일
 	var mailnumCheck = false; 	// 이메일 인증번호 확인
@@ -112,6 +115,7 @@
 
 	$(document).ready(function(){
 		
+		// 가입버튼
 		$(".join_button").click(function(){
 			
 				//$("#join_form").attr("action", "/member/join");
@@ -133,6 +137,61 @@
 					$('.final_id_ck').css('display', 'none');
 					idCheck = true;
 				}
+				
+				// 비밀번호 유효성 검사
+				if(pw == ""){
+					$('.final_pw_ck').css('display', 'block');
+					pwCheck = false;
+				}else{
+					$('.final_pw_ck').css('display', 'none');
+					pwCheck = true;
+				}
+				
+				// 비번 확인 유효성 검사
+				if(pwck == ""){
+					$('.final_pwck_ck').css('display', 'block');
+					pwckCheck = false;
+				}else{
+					$('.final_pwck_ck').css('display', 'none');
+					pwckCheck = true;
+				}
+				
+				// 이름 유효성
+				if(name == ""){
+					$('.final_name_ck').css('display', 'block');
+					nameCheck = false;
+				}else{
+					$('.final_name_ck').css('display', 'none');
+					nameCheck = true;
+				}
+				
+				// 이메일 유효성
+				if(mail == ""){
+					$('.final_mail_ck').css('display', 'block');
+					mailCheck = false;
+				}else{
+					$('.final_mail_ck').css('display', 'none');
+					mailCheck = true;
+				}
+				
+				// 주소 유효성
+				if(addr == ""){
+					$('.final_addr_ck').css('display', 'block');
+					addressCheck = false;
+				}else{
+					$('.final_addr_ck').css('display', 'none');
+					addressCheck = true;
+				}
+				
+				// 최종검사
+				if(idCheck && idckCheck && pwCheck && pwckcorCheck && nameCheck && mailCheck && mailnumCheck && addressCheck){
+					
+					$("#join_form").attr("action", "/member/join");
+					$("#join_form").submit();
+				}
+				
+				return false;
+				
 		});
 	});
 	
@@ -173,7 +232,6 @@
 		
 	});
 	
-	
 	$(".mail_check_button").click(function(){
 		
 		var email = $(".mail_input").val(); 		// 입력메일
@@ -203,11 +261,11 @@
 		if(inputCode == code){  							// 일치하는 경우
 			checkResult.html("인증번호가 일치합니다.");
 			checkResult.attr("class", "correct");
-			console.log("일치.");
+			mailnumCheck = true;
 		}else{												// 일치하지 않는 경우
 			checkResult.html("인증번호를 다시 확인해주세요.");
 			checkResult.attr("class", "incorrect");
-			console.log("불일치.");
+			mailnumCheck = false;
 		}
 		
 	});
@@ -278,6 +336,26 @@
 			
 		}).open();
 	}
+	
+	// 비밀번호 일치 검사
+	$('.pwck_input').on("propertychange change keyup paste input", function(){
+		
+		var pw = $('.pw_input').val();
+		var pwck = $('.pwck_input').val();
+		$('.final_pwck_ck').css('display', 'none');
+		
+		if(pw == pwck){
+			$('.pwck_input_re_1').css('display', 'block');
+			$('.pwck_input_re_2').css('display', 'none');
+			pwckcorCheck = true;
+		}else{
+			$('.pwck_input_re_1').css('display', 'none');
+			$('.pwck_input_re_2').css('display', 'block');
+			pwckcorCheck = false;
+			
+		}
+		
+	});
 	
 	
 	

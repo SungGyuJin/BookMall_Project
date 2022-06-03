@@ -13,7 +13,6 @@
 	Statement stmt = con.createStatement();
 	ResultSet rs = stmt.executeQuery(sql);
 	rs.next();
-	
 %>
 <!DOCTYPE html>
 <html>
@@ -112,7 +111,7 @@
 			return false;
 		}
 		
-		alert("수정완료.")
+		alert("수정완료.");
 		
 	}
 	
