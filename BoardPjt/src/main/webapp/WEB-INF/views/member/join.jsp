@@ -55,6 +55,7 @@
 										<input class="mail_input" name="memberMail" />
 								</div>
 								<span class="final_mail_ck">이메일을 입력해주세요.</span>
+								<span class="mail_input_box_warn"></span>
 								<div class="mail_check_wrap">
 										<div class="mail_check_input_box" id="mail_check_input_box_false">
 												<input class="mail_check_input" disabled="disabled" />
@@ -232,11 +233,23 @@
 		
 	});
 	
+	// email 인증번호 전송
 	$(".mail_check_button").click(function(){
 		
 		var email = $(".mail_input").val(); 		// 입력메일
 		var checkBox = $(".mail_check_input");		// 인증번호 입력한
 		var boxWrap = $(".mail_check_input_box"); 	// 인증번호 입력란 박스
+		var warnMsg = $(".mail_input_box_warn");	// 이메일 입력 경고글
+		
+		// 이메일 형식유효성
+		if(mailFormCheck(email)){
+			warnMsg.html("이메일이 전송되었습니다, 이메일을 확인해주세요.");
+			warnMsg.css("display", "inline-block");
+		}else{
+			warnMsg.html("올바르지 못한 이메일 형식입니다.");
+			warnMsg.css("display", "inlince-block");
+			return false;
+		}
 		
 		$.ajax({
 			
@@ -343,19 +356,28 @@
 		var pw = $('.pw_input').val();
 		var pwck = $('.pwck_input').val();
 		$('.final_pwck_ck').css('display', 'none');
-		
+
 		if(pw == pwck){
+			
 			$('.pwck_input_re_1').css('display', 'block');
 			$('.pwck_input_re_2').css('display', 'none');
 			pwckcorCheck = true;
 		}else{
+			
 			$('.pwck_input_re_1').css('display', 'none');
 			$('.pwck_input_re_2').css('display', 'block');
 			pwckcorCheck = false;
-			
 		}
 		
 	});
+	
+	// 이메일 형식 유효성
+	function mailFormCheck(email){
+	    
+		var form = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
+	    
+		return form.test(email);
+	}
 	
 	
 	
