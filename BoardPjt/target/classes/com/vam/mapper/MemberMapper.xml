@@ -23,4 +23,11 @@
 	<select id="idCheck" resultType="int">
 		Select count(*) From book_member where memberId = #{memberId}
 	</select>
+	
+	<select id="memberLogin" resultType="com.vam.model.MemberVO">
+		Select memberId, memberName, adminck, money, point From book_member
+		Where memberId = #{memberId} and memberPw = #{memberPw}
+	</select>
+	
+	
   </mapper>

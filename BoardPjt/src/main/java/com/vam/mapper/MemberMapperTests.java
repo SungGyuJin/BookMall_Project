@@ -32,13 +32,25 @@ public class MemberMapperTests {
 //		membermapper.memberJoin(member);
 //	}
 	
+//	@Test
+//	public void memberIdChk() throws Exception{
+//		
+//		String id = "admin"; // 존재 O
+//		String id2 = "test123"; // 존재 X
+//		
+//		membermapper.idCheck(id);
+//		membermapper.idCheck(id2);
+//	}
+	
 	@Test
-	public void memberIdChk() throws Exception{
+	public void memberLogin() throws Exception{
 		
-		String id = "admin"; // 존재 O
-		String id2 = "test123"; // 존재 X
+		MemberVO member = new MemberVO();
 		
-		membermapper.idCheck(id);
-		membermapper.idCheck(id2);
+		member.setMemberId("test3");
+		member.setMemberPw("test3");
+		
+		membermapper.memberLogin(member);
+		System.out.println("결과 값 : " + membermapper.memberLogin(member));
 	}
 }

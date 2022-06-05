@@ -9,4 +9,7 @@ public interface MemberMapper {
 	
 	// ID 중복검사
 	public int idCheck(String memberId);
+	
+	// 로그인
+	public MemberVO memberLogin(MemberVO member);
 }
