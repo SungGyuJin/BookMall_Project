@@ -25,8 +25,15 @@
 	</select>
 	
 	<select id="memberLogin" resultType="com.vam.model.MemberVO">
+	
+		Select memberId, memberPw, memberName, adminck, money, point
+		From book_member
+		Where memberId = #{memberId}
+	
+	<!--
 		Select memberId, memberName, adminck, money, point From book_member
 		Where memberId = #{memberId} and memberPw = #{memberPw}
+	-->
 	</select>
 	
 	
