@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="includes/header.jsp" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
@@ -27,7 +28,7 @@
 							<li><a href="/admin/main">관리자 페이지</a></li>
 						</c:if>
 							<li>
-								로그아웃
+								<a id="gnb_logout_button">로그아웃</a>
 							</li>
 						<li>
 							마이룸
@@ -79,5 +80,26 @@
 </div>
 
 
+<script>
+	
+	// gnb-area 로그아웃 버튼작동
+	$("#gnb_logout_button").click(function(){
+		
+		// alert("버튼 작동");
+		
+		$.ajax({
+			
+			type: "POST",
+			url: "/member/logout.do",
+			success: function(data){
+				alert("로그아웃 성공");
+				document.location.reload();
+			}
+			
+		}); // ajax
+		
+	});
+	
+</script>
 </body>
 </html>
