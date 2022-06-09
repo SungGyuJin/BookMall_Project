@@ -18,7 +18,7 @@ public class AdminInterceptor implements HandlerInterceptor{
 		
 		HttpSession session = request.getSession();
 		
-		MemberVO lvo = (MemberVO)session.getAttribute("member");
+		MemberVO lvo = (MemberVO) session.getAttribute("member");
 		
 		if(lvo == null || lvo.getAdminCk() == 0) {	// 관리자 계정이 아닌 경우
 			
