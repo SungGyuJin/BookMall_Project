@@ -24,6 +24,8 @@
 					<div class="admin_content_subject"><span>작가관리</span></div>
 					
 					<div class="author_table_wrap">
+						<!-- 게시물 O -->
+						<c:if test="${listCheck != 'empty'}">
 							<table class="author_table">
 								<thead>
 									<tr>
@@ -44,7 +46,28 @@
 									</tr>
 								</c:forEach>
 							</table>
+						</c:if>
+						
+						<!-- 게시물 X -->
+						<c:if test="${listCheck == 'empty'}">
+							<div class="table_empty">
+								등록된 작가가 없습니다.
+							</div>
+						</c:if>
 					</div>
+					
+					<!-- 검색 영역 -->
+					<div class="search_wrap">
+						<form id="searchForm" action="/admin/authorManage" method="get">
+							<div class="search_input">
+								<input type="text" name="keyword" value='<c:out value="${pageMaker.cri.keyword}"/>'>
+								<input type="hidden" name="pageNum" value='<c:out value="${pageMaker.cri.pageNum}"/>'>
+								<input type="hidden" name="amount" value='${pageMaker.cri.amount}'>
+								<button class='btn search_btn'>검색</button>
+							</div>
+						</form>
+					</div>
+					
 					<!-- 페이지 이동 인터페이스 영역 -->
 					<div class="pageMaker_wrap">
 						
@@ -103,6 +126,7 @@
 	});
 	
 	let moveForm = $('#moveForm');
+	let searchForm = $('#searchForm');
 	
 	// 페이지 이동버튼
 	$(".pageMaker_btn a").on("click", function(e){
@@ -114,6 +138,30 @@
 		
 		moveForm.submit();
 	});
+	
+	// 작가검색
+	$("#searchForm button").on("click", function(e){
+		
+		e.preventDefault();
+		
+		// 검색키워드 유효성 검사
+		if(!searchForm.find("input[name='keyword']").val()){
+			alert("키워드를 입력하십시오.");
+			return false;
+		}
+		
+		searchForm.find("input[name='pageNum']").val("1");
+		
+		searchForm.submit();
+	});
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 </script>

@@ -9,10 +9,11 @@ import lombok.extern.log4j.Log4j;
 @Controller
 @Log4j
 public class BookController {
-
+	
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public void mainPageGET() {
 		
 		log.info("테스트 컨트롤러");
 	}
+	
 }
