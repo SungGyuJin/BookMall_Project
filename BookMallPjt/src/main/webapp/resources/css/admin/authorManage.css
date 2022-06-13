@@ -232,6 +232,11 @@ ul{
     margin-left: 70px;
     margin-top : 30px;
 }
+
+.author_table a{
+	color: #1088ed;
+	font-weight: 500;
+}
  
  	/* 검색 영역 */
 .search_wrap{

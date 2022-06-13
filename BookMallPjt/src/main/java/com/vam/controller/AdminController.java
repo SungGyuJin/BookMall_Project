@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -87,6 +89,45 @@ public class AdminController {
 		
 		return "redirect:/admin/authorManage";
 	}
+	
+	// 작가 상세페이지, 수정페이지
+	@GetMapping({"/authorDetail", "/authorModify"})
+	public void authorGetInfoGET(int authorId, Criteria cri, Model model) throws Exception{
+		
+		log.info("authorDetail......" + authorId);
+		
+		// 작가 관리페이지 정보
+		model.addAttribute("cri", cri);
+		
+		// 선택 작가정보
+		model.addAttribute("authorInfo", authorService.authorGetDetail(authorId));
+	}
+	
+	// 작가정보 수정
+	@PostMapping("/authorModify")
+	public String authorModifyPOST(AuthorVO author, RedirectAttributes rttr) throws Exception{
+		
+		log.info("authorModifyPOST......" + author);
+		
+		int result = authorService.authorModify(author);
+		
+		rttr.addFlashAttribute("modify_result", result);
+		
+		return "redirect:/admin/authorManage";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	

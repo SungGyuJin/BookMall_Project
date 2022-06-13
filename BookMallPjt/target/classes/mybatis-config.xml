@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<typeHandlers>
+        <typeHandler handler="com.test.study.handler.CLOBHandler" javaType="String" jdbcType="LONGVARCHAR"/>
+</typeHandlers>

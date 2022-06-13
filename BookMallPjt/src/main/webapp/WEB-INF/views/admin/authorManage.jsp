@@ -28,6 +28,7 @@
 						<c:if test="${listCheck != 'empty'}">
 							<table class="author_table">
 								<thead>
+								
 									<tr>
 										<td class="th_column_1">작가번호</td>
 										<td class="th_column_2">작가이름</td>
@@ -39,7 +40,11 @@
 								<c:forEach items="${list}" var="list">
 									<tr>
 										<td><c:out value="${list.authorId}"/> </td>
-										<td><c:out value="${list.authorName}"/> </td>
+										<td>
+											<a class="move" href='<c:out value="${list.authorId}"/>'>
+												<c:out value="${list.authorName}"/>
+											</a>
+										</td>
 										<td><c:out value="${list.nationName}"/> </td>
 										<td><fmt:formatDate value="${list.regDate}" pattern="yyyy-MM-dd"/></td>
 										<td><fmt:formatDate value="${list.updateDate}" pattern="yyyy-MM-dd"/></td>
@@ -112,8 +117,10 @@
 	$(document).ready(function(){
 		
 		let result = '<c:out value="${enroll_result}"/>';
+		let mresult = '<c:out value="${modify_result}"/>';
 		
 		checkResult(result);
+		checkmResult(mresult);
 		
 		function checkResult(result){
 			
@@ -122,6 +129,15 @@
 			}
 			
 			alert("작가 '${enroll_result}' 을 등록하였습니다.");
+		}
+		
+		function checkmResult(mresult){
+			
+			if(mresult === '1'){
+				alert("작가정보 수정완료.");
+			}else if(mresult === '0'){
+				alert("작가정보 수정실패.");
+			}
 		}
 	});
 	
@@ -153,6 +169,16 @@
 		searchForm.find("input[name='pageNum']").val("1");
 		
 		searchForm.submit();
+	});
+	
+	// 작가 상세페이지 이동
+	$(".move").on("click", function(e){
+		
+		e.preventDefault();
+		
+		moveForm.append("<input type='hidden' name='authorId' value='" + $(this).attr("href") + "'>");
+		moveForm.attr("action", "/admin/authorDetail");
+		moveForm.submit();
 	});
 	
 	

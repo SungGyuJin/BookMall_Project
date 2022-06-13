@@ -1,7 +1,5 @@
 package com.vam.mapper;
 
-import java.util.List;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +7,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.vam.model.AuthorVO;
-import com.vam.model.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -46,16 +43,45 @@ public class AuthorMapperTests {
 //		}
 //	}
 	
+//	@Test
+//	public void authorGetTotalTest() throws Exception{
+//		
+//		Criteria cri = new Criteria();
+//		cri.setKeyword("유홍준");
+//		
+//		int total = mapper.authorGetTotal(cri);
+//		
+//		System.out.println("total......" + total);
+//	}
+	
+	// 작가 상세 페이지
+//	@Test
+//	public void authorGetDetail() {
+//		
+//		int authorId = 1;
+//		
+//		AuthorVO author = mapper.authorGetDetail(authorId);
+//		
+//		System.out.println("author......" + author);
+//	}
+	
+	// 작가 정보 수정
 	@Test
-	public void authorGetTotalTest() throws Exception{
+	public void authorModifyTest() {
 		
-		Criteria cri = new Criteria();
-		cri.setKeyword("유홍준");
+		AuthorVO author = new AuthorVO();
 		
-		int total = mapper.authorGetTotal(cri);
+		author.setAuthorId(2);
 		
-		System.out.println("total......" + total);
+		author.setAuthorName("수정ㅇㅇ합니다");
+		author.setNationId("01");
+		author.setAuthorIntro("유홍준 수정테스트.");
+		
+		mapper.authorModify(author);
 	}
+	
+	
+	
 	
 	
 }
