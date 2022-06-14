@@ -66,19 +66,19 @@ public class AuthorMapperTests {
 //	}
 	
 	// 작가 정보 수정
-	@Test
-	public void authorModifyTest() {
-		
-		AuthorVO author = new AuthorVO();
-		
-		author.setAuthorId(2);
-		
-		author.setAuthorName("수정ㅇㅇ합니다");
-		author.setNationId("01");
-		author.setAuthorIntro("유홍준 수정테스트.");
-		
-		mapper.authorModify(author);
-	}
+//	@Test
+//	public void authorModifyTest() {
+//		
+//		AuthorVO author = new AuthorVO();
+//		
+//		author.setAuthorId(2);
+//		
+//		author.setAuthorName("수정ㅇㅇ합니다");
+//		author.setNationId("01");
+//		author.setAuthorIntro("유홍준 수정테스트.");
+//		
+//		mapper.authorModify(author);
+//	}
 	
 	
 	

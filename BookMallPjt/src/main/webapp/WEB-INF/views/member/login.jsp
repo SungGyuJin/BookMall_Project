@@ -21,12 +21,12 @@
 				<div class="login_wrap">
 					<div class="id_wrap">
 							<div class="id_input_box">
-								<input class="id_input" name="memberId" />
+								<input class="id_input" name="memberId" value="admin"/>
 							</div>
 					</div>
 					<div class="pw_wrap">
 							<div class="pw_input_box">
-									<input class="pw_iput" name="memberPw" />
+									<input class="pw_iput" name="memberPw"  value="1234"/>
 							</div>
 					</div>
 					

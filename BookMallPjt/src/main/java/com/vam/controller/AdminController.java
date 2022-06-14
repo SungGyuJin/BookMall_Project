@@ -11,9 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.fasterxml.jackson.core.JacksonException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.vam.model.AuthorVO;
+import com.vam.model.BookVO;
 import com.vam.model.Criteria;
 import com.vam.model.PageDTO;
+import com.vam.service.AdminService;
 import com.vam.service.AuthorService;
 
 import lombok.extern.log4j.Log4j;
@@ -26,6 +31,9 @@ public class AdminController {
 	@Autowired
 	private AuthorService authorService;
 	
+	@Autowired
+	private AdminService adminService;
+	
 	// 관리자 페이지 이동 메서드
 	@RequestMapping(value = "/main", method = RequestMethod.GET)
 	public void adminMainGET() throws Exception{
@@ -36,18 +44,60 @@ public class AdminController {
 	
 	// 상품관리 페이지 접속
 	@RequestMapping(value = "goodsManage", method = RequestMethod.GET)
-	public void goodsManageGET() throws Exception{
+	public void goodsManageGET(Criteria cri, Model model) throws Exception{
 		
 		log.info("상품관리 페이지 접속");
+		
+		// 상품 리스트 데이터
+		List list = adminService.goodsGetList(cri);
+		
+		if(!list.isEmpty()) {
+			model.addAttribute("list", list);
+		}else {
+			model.addAttribute("listCheck", "empty");
+			return;
+		}
+		
+		model.addAttribute("pageMaker", new PageDTO(cri, adminService.goodsGetTotal(cri)));
 	}
 	
 	// 상품등록 페이지 접속
 	@RequestMapping(value = "goodsEnroll", method = RequestMethod.GET)
-	public void goodsEnrollGET() throws Exception{
+	public void goodsEnrollGET(Model model) throws Exception{
 		
 		log.info("상품등록 페이지 접속");
+		
+		ObjectMapper objm = new ObjectMapper();
+		
+		List list = adminService.cateList();
+		
+		String cateList = objm.writeValueAsString(list);
+		
+		model.addAttribute("cateList", cateList);
+		
+		log.info("변경 전......" + list);
+		log.info("변경 후......" + cateList);
+		
 	}
-
+	
+	// 상품조회 페이지
+	@GetMapping("/goodsDetail")
+	public void goodsGetInfoGET(int bookId, Criteria cri, Model model) throws JsonProcessingException {
+		
+		log.info("goodsGetInfo()..." + bookId);
+		
+		ObjectMapper mapper = new ObjectMapper();
+		
+		// 카테고리 리스트 데이터
+		model.addAttribute("cateList", mapper.writeValueAsString(adminService.cateList()));
+		
+		// 목록페이지 조건정보
+		model.addAttribute("cri", cri);
+		
+		// 조회페이지 정보
+		model.addAttribute("goodsInfo", adminService.goodsGetDetail(bookId));
+	}
+	
 	// 작가등록 페이지 접속
 	@RequestMapping(value = "authorEnroll", method = RequestMethod.GET)
 	public void authorEnrollGET() throws Exception{
@@ -116,8 +166,39 @@ public class AdminController {
 		return "redirect:/admin/authorManage";
 	}
 	
+	// 상품등록
+	@PostMapping("/goodsEnroll")
+	public String goodsEnrollPOST(BookVO book, RedirectAttributes rttr) {
+		
+		log.info("goodsEnrollPOST......" + book);
+		
+		adminService.bookEnroll(book);
+		
+		rttr.addFlashAttribute("enroll_result", book.getBookName());
+		
+		return "redirect:/admin/goodsManage";
+	}
 	
-	
+	// 작가 검색 팝업창
+	@GetMapping("/authorPop")
+	public void authorPopGET(Criteria cri, Model model) throws Exception{
+		
+		log.info("authorPopGET......");
+		
+		cri.setAmount(5);
+		
+		// 게시물 출력
+		List list = authorService.authorGetList(cri);
+		
+		if(!list.isEmpty()) {
+			model.addAttribute("list", list);			// 작가 존재하는 경우
+		}else {
+			model.addAttribute("listCheck", "empty");	// 작가 존재하지 않는 경우
+		}
+		
+		// 페이지이동 인터페이스
+		model.addAttribute("pageMaker", new PageDTO(cri, authorService.authorGetTotal(cri)));
+	}
 	
 	
 	
