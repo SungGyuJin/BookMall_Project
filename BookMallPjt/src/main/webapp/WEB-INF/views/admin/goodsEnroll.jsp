@@ -297,7 +297,7 @@
 	
 	// 날짜 패턴설정
 	const config = {
-			dateFormat: 'yy / mm / dd',
+			dateFormat: 'yy-mm-dd',
 			showOn: "button",
 			buttonText: "날짜선택",
 	  		prevText: '이전 달',

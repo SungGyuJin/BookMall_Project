@@ -137,15 +137,14 @@
                    		
                    			<div class="btn_section">
                    				<button id="cancelBtn" class="btn">상품 목록</button>
-	                    		<button id="enrollBtn" class="btn enroll_btn">수정 </button>
+	                    		<button id="modifyBtn" class="btn enroll_btn">수정 </button>
 	                    	</div> 
                     </div>      
-
                 	
-                	<form id="moveForm" action="/admin/goodsManage" method="get" >
- 						<input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum}">
-						<input type="hidden" name="amount" value="${pageMaker.cri.amount}">
-						<input type="hidden" name="keyword" value="${pageMaker.cri.keyword}">
+                	<form id="moveForm" action="/admin/goodsManage" method="get">
+ 						<input type="hidden" name="pageNum" value="${cri.pageNum}">
+						<input type="hidden" name="amount" value="${cri.amount}">
+						<input type="hidden" name="keyword" value="${cri.keyword}">
                 	</form>
                 	
                 </div>
@@ -221,6 +220,7 @@
 			}
 		}	
 		
+		
 		/* 배열 초기화 */
 		makeCateArray(cate1Obj,cate1Array,cateList,1);
 		makeCateArray(cate2Obj,cate2Array,cateList,2);
@@ -288,6 +288,24 @@
 	}); // document end
 	
 	
+	// 상품관리 목록이동 버튼
+	$("#cancelBtn").on("click", function(e){
+		
+		e.preventDefault();
+		$("#moveForm").submit();
+	});
+	
+	// 수정페이지 이동
+	$("#modifyBtn").on("click", function(e){
+		
+		e.preventDefault();
+		
+		let addInput = '<input type="hidden" name="bookId" value="${goodsInfo.bookId}">';
+		
+		$("#moveForm").append(addInput);
+		$("#moveForm").attr("action", "/admin/goodsModify");
+		$("#moveForm").submit();
+	});
 	
 	
 	

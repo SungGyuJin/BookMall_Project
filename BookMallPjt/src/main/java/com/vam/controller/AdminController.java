@@ -81,7 +81,7 @@ public class AdminController {
 	}
 	
 	// 상품조회 페이지
-	@GetMapping("/goodsDetail")
+	@GetMapping({"/goodsDetail", "/goodsModify"})
 	public void goodsGetInfoGET(int bookId, Criteria cri, Model model) throws JsonProcessingException {
 		
 		log.info("goodsGetInfo()..." + bookId);
