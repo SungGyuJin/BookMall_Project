@@ -62,15 +62,62 @@ public class AdminMapperTests {
 	
 
 	// 상품조회 페이지
-	@Test
-	public void goodsGetDetailTest() {
-		
-		int bookId = 1;
-		
-		BookVO result = mapper.goodsGetDetail(bookId);
-		
-		System.out.println("상품 조회 데이터: " + result);
-		
-	}
+//	@Test
+//	public void goodsGetDetailTest() {
+//		
+//		int bookId = 1;
+//		
+//		BookVO result = mapper.goodsGetDetail(bookId);
+//		
+//		System.out.println("상품 조회 데이터: " + result);
+//		
+//	}
+	
+//	@Test
+//	public void goodsModify() {
+//		
+//		BookVO book = new BookVO();
+//		
+//		book.setBookId(1);
+//		book.setBookName("마이아프지않아");
+//		book.setAuthorId(2);
+//		book.setPubleYear("2021-03-18");
+//		book.setPublisher("테스트");
+//		book.setCateCode("0231");
+//		book.setBookPrice(20000);
+//		book.setBookStock(300);
+//		book.setBookDiscount(0.23);
+//		book.setBookIntro("책 소개");
+//		book.setBookContents("책 목차");
+//		
+//		mapper.goodsModify(book);
+//	}
+	
+	// 상품정보 삭제
+//	@Test
+//	public void goodsDeleteTest() {
+//		
+//		int bookId = 1;
+//		
+//		int result = mapper.goodsDelete(bookId);
+//		
+//		if(result == 1) {
+//			System.out.println("삭제 성공");
+//		}
+//		
+//	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

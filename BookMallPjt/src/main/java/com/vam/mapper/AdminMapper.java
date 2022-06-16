@@ -22,4 +22,12 @@ public interface AdminMapper {
 	
 	// 상품 조회 페이지
 	public BookVO goodsGetDetail(int bookId);
+	
+	// 상품수정
+	public int goodsModify(BookVO vo);
+	
+	// 상품정보 삭제
+	public int goodsDelete(int bookId);
+	
+	
 }

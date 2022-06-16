@@ -98,6 +98,37 @@ public class AdminController {
 		model.addAttribute("goodsInfo", adminService.goodsGetDetail(bookId));
 	}
 	
+	// 상품정보 수정
+	@PostMapping("/goodsModify")
+	public String goodsModifyPOST(BookVO vo, RedirectAttributes rttr) {
+		
+		log.info("goodsModifyPOST..." + vo);
+		
+		int result = adminService.goodsModify(vo);
+		
+		rttr.addFlashAttribute("modify_result", result);
+
+		System.out.println("modify_result: " + result);
+		
+		return "redirect:/admin/goodsManage";
+		
+	}
+	
+	// 상품정보 삭제
+	@PostMapping("/goodsDelete")
+	public String goodsDeletePOST(int bookId, RedirectAttributes rttr) {
+		
+		log.info("goodsDeletePOST...");
+		
+		int result = adminService.goodsDelete(bookId);
+		
+		rttr.addFlashAttribute("delete_result" + result);
+		
+		System.out.println("delete_result: " + result);
+		
+		return "redirect:/admin/goodsManage";
+	}
+	
 	// 작가등록 페이지 접속
 	@RequestMapping(value = "authorEnroll", method = RequestMethod.GET)
 	public void authorEnrollGET() throws Exception{

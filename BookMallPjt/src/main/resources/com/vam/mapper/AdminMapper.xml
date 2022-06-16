@@ -23,7 +23,7 @@
   	
 	  	<![CDATA[
 		select * from(
-		    select /*+INDEX_DESC(vam_book SYS_C0030029)*/ rownum as rn, bookId, bookName,
+		    select /*+INDEX_DESC(vam_book SYS_C0030086)*/ rownum as rn, bookId, bookName,
 		        (select authorName from vam_author where vam_book.authorId = vam_author.authorId) authorName,
 		        (select cateName from vam_bcate where vam_book.cateCode = vam_bcate.cateCode) cateName,bookStock,regDate
 		    from vam_book 
@@ -64,6 +64,31 @@
 		from vam_book where bookId = #{bookId}
 	
 	</select>
+	
+	<!-- 상품 정보 수정 -->
+	<update id="goodsModify">
+		
+		Update vam_book set 
+			bookName = #{bookName}
+			, authorId = #{authorId}
+			, publeYear = #{publeYear}
+			, publisher = #{publisher}
+			, cateCode = ${cateCode}
+			, bookPrice = #{bookPrice}
+			, bookStock = #{bookStock}
+			, bookDiscount = #{bookDiscount}
+			, bookIntro = #{bookIntro}
+			, bookContents = #{bookContents}
+			, updateDate = sysdate
+		where bookId = ${bookId}
+		
+	</update>
+	
+	<delete id="goodsDelete">
+		
+		Delete From vam_book where bookId = #{bookId}
+		
+	</delete>
 	
 	
   </mapper>

@@ -11,7 +11,7 @@
 <jsp:include page="theList.jsp" />
 
 <%
-//달력 객체생성
+	//달력 객체생성
 	Calendar ca = Calendar.getInstance();
 	//클릭한 날짜 파라미터 값
 	String dat = request.getParameter("param");
@@ -247,17 +247,23 @@
 		<tbody>
 			<tr>
 				<%
-				int count = 0;
-							// 1일 시작 날짜 and 1 2 3 4 ... 31 테이블 하나당 날짜찍기
-							// 한 주의 토요일이 끝나면 개행
-							// 먼저 1일이 시작되기전까지 빈칸을 찍자
-				for(int blank = 1; blank < dayOfweek; blank++){
+				// 1일 시작 날짜 and 1 2 3 4 ... 31 테이블 하나당 날짜찍기
+				// 한 주의 토요일이 끝나면 개행
+				
+				
+				int count = 0; // 개행을 위한  count 변수선언
+							
+				/* 1일이 시작되기전까지 빈칸을 찍는 작업 */
+				/* dayOfweek는 그 달의 1일이 시작되는 요일을 뜻합니다 */
+				for(int blank = 1; blank < dayOfweek; blank++){ 
 					out.print("<td></td>");
 					count++;
 				}
+				
 				Connection conn = DBcon.getConnection();
 				Statement stmt = conn.createStatement();
-							//빈칸은 끝났다 이제 말일까지 날짜를 찍자
+				
+				//빈칸은 끝났다 이제 말일까지 날짜를 찍자
 				for(int day = 1; day <= lastDate; day++){
 					ArrayList<String> list = new ArrayList<>();
 					String regData = (Integer.toString(year) + Integer.toString(month + 1)) + Integer.toString(day); // 년, 월 합체
@@ -265,7 +271,8 @@
 					String addMon = "";
 					String subMon = "";
 					count++;
-								
+					
+					// 토요일
 					if(count % 7 == 0){
 					ResultSet rs = stmt.executeQuery(sql);
 						while(rs.next()){
@@ -283,7 +290,7 @@
 									subMon = "";
 								}
 							}
-						}
+						}	// while end
 				%>
 					<td valign="top" align="center" id="sat" onClick="location.href='mainAddAcnt.jsp?year=<%= year %>&month=<%= month %>&param=<%= day%>'">
 						<br><%= day %><br>
@@ -291,6 +298,7 @@
 						<span id="subMon"><%= subMon %></span>
 					</td>
 				<%		
+					// 일요일
 					}else if(count % 7 == 1){
 						ResultSet rs = stmt.executeQuery(sql);
 						while(rs.next()){
@@ -308,7 +316,7 @@
 									subMon = "";
 								}
 							}
-						}
+						}	// while end
 				%>
 					<td valign="top" align="center" id="sun" onClick="location.href='mainAddAcnt.jsp?year=<%= year %>&month=<%= month %>&param=<%= day%>'">
 						<br><%= day %><br>
@@ -316,7 +324,8 @@
 						<span id="subMon"><%= subMon %></span>
 					</td>
 				<%
-					}else{ // 평일
+					// 평일
+					}else{ 
 						ResultSet rs = stmt.executeQuery(sql);
 						while(rs.next()){
 							
@@ -334,7 +343,7 @@
 									subMon = "";
 								}
 							}
-						}
+						}	// while end
 				%>
 					<td valign="top" align="center" id="basic_td" onClick="location.href='mainAddAcnt.jsp?year=<%= year %>&month=<%= month %>&param=<%= day%>'">
 						<br><%= day %><br>
@@ -343,11 +352,13 @@
 					</td>
 				<%			
 					}
+						// 달력의 개행작업
 						if(count % 7 == 0){
 							out.print("</tr>");
 						}
 					} // 날짜찍는 for문 끝
-					out.println("카운트"+count);
+					
+					/* 그 달의 날짜가 다 입력된 후 남은 공백입력 */
 					if(count == 28 || count == 35){
 						for(int i = 1; i <= 7; i++){
 							out.print("<td id='nextMonthDate'>"+i+"</td>");

@@ -29,8 +29,7 @@ public class AdminServiceImpl implements AdminService{
 		adminMapper.bookEnroll(book);
 		
 	}
-
-
+	
 	@Override
 	public List<CateVO> cateList() {
 		
@@ -38,7 +37,7 @@ public class AdminServiceImpl implements AdminService{
 		
 		return adminMapper.cateList();
 	}
-
+	
 	// 상품리스트
 	@Override
 	public List<BookVO> goodsGetList(Criteria cri) {
@@ -57,7 +56,6 @@ public class AdminServiceImpl implements AdminService{
 		return adminMapper.goodsGetTotal(cri);
 	}
 
-
 	@Override
 	public BookVO goodsGetDetail(int bookId) {
 
@@ -65,4 +63,23 @@ public class AdminServiceImpl implements AdminService{
 		
 		return adminMapper.goodsGetDetail(bookId);
 	}
+
+	@Override
+	public int goodsModify(BookVO vo) {
+
+		log.info("goodsModify...");
+		
+		return adminMapper.goodsModify(vo);
+	}
+
+
+	@Override
+	public int goodsDelete(int bookId) {
+			
+		log.info("goodsDelete...");
+		
+		return adminMapper.goodsDelete(bookId);
+	}
+	
+	
 }
