@@ -58,4 +58,17 @@
       		, updatedate = sysdate 
       	where authorId = #{authorId}
       </update>
+      
+      
+	<!-- 작가정보 삭제-->
+	<delete id="authorDelete">
+	
+		Delete From vam_author where authorId = #{authorId}
+		
+	</delete>
+      
+      
+      
+      
+      
   </mapper>

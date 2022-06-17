@@ -41,7 +41,7 @@
 		    )
 		where rn > (#{pageNum} -1) * #{amount}		  	
   		]]>
-  	
+  	 
   	</select>
   	
   	<!-- 상품 총 개수 -->
@@ -52,10 +52,10 @@
   		<if test="keyword != null">
   		
   			where bookName like '%' || #{keyword} || '%'
+  			
   		</if>
   		
   	</select> 
-  	
   	
 	<!-- 상품 조회 페이지 -->
 	<select id="goodsGetDetail" resultType="com.vam.model.BookVO">
@@ -90,6 +90,7 @@
 		Delete From vam_book where bookId = #{bookId}
 		
 	</delete>
+	
 	
 	
   </mapper>

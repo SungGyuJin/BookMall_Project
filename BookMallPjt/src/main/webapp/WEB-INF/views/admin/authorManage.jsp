@@ -139,6 +139,15 @@
 				alert("작가정보 수정실패.");
 			}
 		}
+		
+		// 삭제완료 이벤트
+		let delete_result = '${delete_result}';
+		
+		if(delete_result == 1){
+			alert("삭제완료.");
+		}else if(delete_result == 2){
+			alert("삭제불가.");
+		}
 	});
 	
 	let moveForm = $('#moveForm');
@@ -147,7 +156,6 @@
 	// 페이지 이동버튼
 	$(".pageMaker_btn a").on("click", function(e){
 		
-		// 페이지 이동 버튼
 		e.preventDefault();
 		
 		moveForm.find("input[name='pageNum']").val($(this).attr("href"));

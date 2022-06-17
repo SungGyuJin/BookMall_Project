@@ -122,7 +122,7 @@ public class AdminController {
 		
 		int result = adminService.goodsDelete(bookId);
 		
-		rttr.addFlashAttribute("delete_result" + result);
+		rttr.addFlashAttribute("delete_result", result);
 		
 		System.out.println("delete_result: " + result);
 		
@@ -193,6 +193,30 @@ public class AdminController {
 		int result = authorService.authorModify(author);
 		
 		rttr.addFlashAttribute("modify_result", result);
+		
+		return "redirect:/admin/authorManage";
+	}
+	
+	// 작가정보 삭제
+	@PostMapping("/authorDelete")
+	public String authorDeletePOST(int authorId, RedirectAttributes rttr) {
+		
+		log.info("authorDeletePOST...");
+		
+		int result = 0;
+		
+		try {
+			
+			result = authorService.authorDelete(authorId);
+		}catch (Exception e){
+			e.printStackTrace();
+			result = 2;
+			rttr.addFlashAttribute("delete_result", result);
+			
+			return "redirect:/admin/authorManage";
+		}
+		
+		rttr.addFlashAttribute("delete_result", result);
 		
 		return "redirect:/admin/authorManage";
 	}

@@ -80,6 +80,19 @@ public class AuthorMapperTests {
 //		mapper.authorModify(author);
 //	}
 	
+	// 작가정보삭제
+		@Test
+		public void	authorDeleteTest() {
+			
+			int authorId = 3;
+			
+			int result = mapper.authorDelete(authorId);
+			
+			if(result == 1) {
+				System.out.println("삭제완료.");
+			}
+		}
+	
 	
 	
 	
