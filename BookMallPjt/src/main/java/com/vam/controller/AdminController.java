@@ -1,5 +1,8 @@
 package com.vam.controller;
 
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -261,24 +264,42 @@ public class AdminController {
 		 
 		log.info("uploadAjaxActionPOST......");
 		
+		String uploadFolder = "C:\\upload";
+		
+		// 날짜 폴더 경로
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		
+		Date date = new Date();
+		
+		String str = sdf.format(date);
+		
+		String datePath = str.replace("-", File.separator);
+		
+		// 폴더 생성
+		File uploadPath = new File(uploadFolder,datePath);
+		
+		if(uploadPath.exists() == false) {
+			
+			uploadPath.mkdirs();
+		}
+		
 		// 향상된 for
-		for(MultipartFile multiparfile : uploadFile) {
+		for(MultipartFile multipartFile : uploadFile) {
 			
-			log.info("------------------------------");
-			log.info("파일 이름: " + multiparfile.getOriginalFilename());
-			log.info("파일 타입: " + multiparfile.getContentType());
-			log.info("파일 크기: " + multiparfile.getSize());
-		}
-		
-		// 기본 for
-		for(int i = 0; i < uploadFile.length; i++) {
+			// 파일이름
+			String uploadFileName = multipartFile.getOriginalFilename();
 			
-			log.info("------------------------------");
-			log.info("파일 이름: " + uploadFile[i].getOriginalFilename());
-			log.info("파일 타입: " + uploadFile[i].getContentType());
-			log.info("파일 크기: " + uploadFile[i].getSize());
+			// 파일위치, 파일 이름을 합친 File 객체
+			File saveFile = new File(uploadPath, uploadFileName);
+			
+			// 파일저장
+			try {
+				
+				multipartFile.transferTo(saveFile);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 		}
-		
 		
 		
 	}

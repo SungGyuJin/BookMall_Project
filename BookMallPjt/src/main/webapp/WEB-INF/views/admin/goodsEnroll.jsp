@@ -431,7 +431,6 @@
 			}
 		}
 		
-		
 	});
 	
 	/* 할인율 Input 설정 */
@@ -461,7 +460,6 @@
 		let sendDiscountRate = discountRate / 100;			// 서버에 전송할 할인값
 		let goodsPrice = $("input[name='bookPrice']").val();			// 원가
 		let discountPrice = goodsPrice * (1 - sendDiscountRate);		// 할인가격
-		
 
 		if(!isNaN(discountRate)){
 			
@@ -488,7 +486,7 @@
 			
 			url: '/admin/uploadAjaxAction',
 			processData : false,
-			contentData : falsem,
+			contentData : false,
 			data : formData,
 			type : 'POST',
 			dataType : 'json'
