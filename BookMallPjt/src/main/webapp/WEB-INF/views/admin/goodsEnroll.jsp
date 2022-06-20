@@ -275,7 +275,6 @@
 		if(bookNameCk && authorIdCk && publeYearCk && publisherCk && cateCodeCk && priceCk && stockCk && discountCk && introCk && contentsCk ){
 
 			enrollForm.submit();
-			
 		} else {
 			
 			return false;
@@ -300,7 +299,7 @@
 			console.error(error);
 		});
 	
-	/* 달력 위젯 사용 */
+	// 달력 위젯 사용
 	
 	// 날짜 패턴설정
 	const config = {
@@ -317,15 +316,14 @@
 		    yearSuffix: '년',     
 		    changeMonth: true,
      		changeYear: true
+     		
 	}
-	
 	
 	// 달력
 	$(function() {
 		
 		$("input[name='publeYear']").datepicker(config);
 	});
-	
 	
 	// 작가 선택 버튼
 	$('.authorId_btn').on("click", function(e){
@@ -497,21 +495,21 @@
 	
 	// var, method related with attachFile
 	let regex = new RegExp("(.*?)\.(jpg|png)$");
-	let maxSize = 1048576;	// 1MB
+	let maxSize = 1048576; //1MB	
 	
 	function fileCheck(fileName, fileSize){
-		
+
 		if(fileSize >= maxSize){
 			alert("파일 사이즈 초과");
 			return false;
 		}
-		
+			  
 		if(!regex.test(fileName)){
 			alert("해당 종류의 파일은 업로드할 수 없습니다.");
 			return false;
 		}
 		
-		return true;
+		return true;		
 		
 	}
 	

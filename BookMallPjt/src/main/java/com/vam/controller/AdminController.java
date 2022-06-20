@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -276,7 +277,7 @@ public class AdminController {
 		String datePath = str.replace("-", File.separator);
 		
 		// 폴더 생성
-		File uploadPath = new File(uploadFolder,datePath);
+		File uploadPath = new File(uploadFolder, datePath);
 		
 		if(uploadPath.exists() == false) {
 			
@@ -289,18 +290,21 @@ public class AdminController {
 			// 파일이름
 			String uploadFileName = multipartFile.getOriginalFilename();
 			
+			// uuid 적용 
+			String uuid = UUID.randomUUID().toString();
+			
+			uploadFileName = uuid + "_" + uploadFileName;
+			
 			// 파일위치, 파일 이름을 합친 File 객체
 			File saveFile = new File(uploadPath, uploadFileName);
 			
 			// 파일저장
 			try {
-				
 				multipartFile.transferTo(saveFile);
 			}catch(Exception e) {
 				e.printStackTrace();
 			}
 		}
-		
 		
 	}
 	

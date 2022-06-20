@@ -24,4 +24,5 @@ public interface AuthorMapper {
 	
 	// 작자정보 삭제
 	public int authorDelete(int authorId);
+	
 }
