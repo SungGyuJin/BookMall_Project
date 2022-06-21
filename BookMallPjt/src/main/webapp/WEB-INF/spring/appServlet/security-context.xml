@@ -7,5 +7,4 @@
 
 	<bean id="bcruptPasswordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"></bean>
 	
-	
 </beans>

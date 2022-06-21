@@ -137,7 +137,7 @@
 												<label>상품이미지</label>
 										</div>
 										<div class="form_section_content">
-											<input type="file" id="fileItem" name="uploadFile" style="height: 30px;">
+											<input type="file" id ="fileItem" name='uploadFile' style="height: 30px;">
 										</div>
 								</div>
 						</form>
