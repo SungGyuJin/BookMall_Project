@@ -468,26 +468,34 @@
 	
 	// 이미지 업로드
 	$("input[type='file']").on("change", function(e){
-		
-		let formData = new FormData();
+
+		let formData = new FormData();	
 		let fileInput = $('input[name="uploadFile"]');
 		let fileList = fileInput[0].files;
 		let fileObj = fileList[0];
 		
+		/*
 		if(!fileCheck(fileObj.name, fileObj.size)){
 			return false;
 		}
+		*/
 		
 		formData.append("uploadFile", fileObj);
 		
 		$.ajax({
 			
-			url: '/admin/uploadAjaxAction',
+			url : '/admin/uploadAjaxAction',
 			processData : false,
-			contentData : false,
+			contentType : false,
 			data : formData,
 			type : 'POST',
-			dataType : 'json'
+			dataType : 'json',
+			success : function(result){
+					console.log(result);
+			},
+			error : function(result){
+				alert("이미지파일이 아닙니다.");
+			}
 			
 		});
 		

@@ -34,7 +34,6 @@
 			<file-size-threshold>20971520</file-size-threshold>		<!-- 20MB -->
 		</multipart-config>
 	</servlet>
-	
 		
 	<servlet-mapping>
 		<servlet-name>appServlet</servlet-name>
