@@ -81,7 +81,7 @@
 			, bookIntro = #{bookIntro}
 			, bookContents = #{bookContents}
 			, updateDate = sysdate
-		where bookId = ${bookId}
+		Where bookId = ${bookId}
 		
 	</update>
 	

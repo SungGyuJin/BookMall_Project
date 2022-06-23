@@ -3,6 +3,7 @@ package com.vam.controller;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -398,7 +399,39 @@ public class AdminController {
 		return result;
 	}
 
-
+	@PostMapping("/deleteFile")
+	public ResponseEntity<String> deleteFile(String fileName){
+		
+		 log.info("deleteFile......" + fileName);
+		 
+		 File file = null;
+		 
+		 try {
+			 
+			 // 썸네일파일 삭제
+			 file = new File("c:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
+			 
+			 file.delete();
+			 
+			 // 원본파일 삭제
+			 String originFileName = file.getAbsolutePath().replace("s_", "");
+			 
+			 log.info("originFileName : " + originFileName);
+			 
+			 file = new File(originFileName);
+			 
+			 file.delete();
+			 
+			 
+		 }catch(Exception e) {
+			 e.printStackTrace();
+			 
+			 return new ResponseEntity<String>("fail", HttpStatus.NOT_IMPLEMENTED);
+		 }
+		 
+		 return new ResponseEntity<String>("success", HttpStatus.OK);
+		 
+	}
 	
 	
 	
