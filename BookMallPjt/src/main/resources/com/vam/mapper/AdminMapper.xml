@@ -6,10 +6,10 @@
 	<!-- 작가 등록 -->
   	<insert id="bookEnroll">
   	
-  		<selectKey resultType="int" keyProperty="bookId" order="BEFORE">
+  		<selectKey resultType="int" keyProperty="bookId" order="AFTER">
   			
-			SELECT "ISEQ$$_115969".nextval FROM dual
-			
+			SELECT "SYSTEM"."ISEQ$$_115969".currval FROM dual
+					
   		</selectKey>
   	 
   		insert into vam_book(bookName, authorId, publeYear, publisher, cateCode, bookPrice, bookStock, bookDiscount, bookIntro, bookContents)

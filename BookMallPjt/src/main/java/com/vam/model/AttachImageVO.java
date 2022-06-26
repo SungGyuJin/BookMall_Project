@@ -37,7 +37,7 @@ public class AttachImageVO {
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
-
+	
 	public int getBookId() {
 		return bookId;
 	}
