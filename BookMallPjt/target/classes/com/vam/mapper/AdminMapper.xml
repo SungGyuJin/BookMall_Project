@@ -105,8 +105,19 @@
 	
 	</insert>
 	
+	<!-- 지정 상품 이미지 전체삭제 -->
+	<delete id="deleteImageAll">
 	
+		Delete From vam_image where bookId = #{bookId}
+		
+	</delete>
 	
+	<!-- 어제자 날짜 이미지 리스트 -->
+	<select id="checkFileList" resultType="com.vam.model.AttachImageVO">
+	
+		Select * From vam_image where uploadpath = to_char(sysdate -1, 'yyyy\mm\dd')
+	
+	</select>
 	
 	
 	

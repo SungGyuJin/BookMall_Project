@@ -160,7 +160,7 @@
 						<input type="hidden" name='bookId' value="${goodsInfo.bookId}">
                 	</form>                     
                 </div>
- 
+
  				<%@include file="../includes/admin/footer.jsp" %>
  				
 <script>
@@ -620,7 +620,7 @@
 		if($("#result_card").length > 0){
 			deleteFile();
 		}
-				
+		
 		let formData = new FormData();
 		let fileInput = $('input[name="uploadFile"]');
 		let fileList = fileInput[0].files;
