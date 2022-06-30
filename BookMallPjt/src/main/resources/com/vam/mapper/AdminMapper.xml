@@ -119,6 +119,12 @@
 	
 	</select>
 	
+	<!-- 지정상품 이미지 정보얻기 -->
+	<select id="getAttachInfo" resultType="com.vam.model.AttachImageVO">
+	
+		Select * From vam_image where bookId = #{bookId}
+		
+	</select>
 	
 	
 	
