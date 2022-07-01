@@ -189,8 +189,8 @@
 		$(function() {	
 			
 			let publeYear = '${goodsInfo.publeYear}';
-			let puble_length = publeYear.indexOf(" ");
-			publeYear = publeYear.substring(0, puble_length);
+			//let puble_length = publeYear.indexOf(" ");
+			//publeYear = publeYear.substring(0, puble_length);
 			$("input[name='publeYear']").datepicker(config);
 			$("input[name='publeYear']").datepicker("setDate", publeYear);
 		});

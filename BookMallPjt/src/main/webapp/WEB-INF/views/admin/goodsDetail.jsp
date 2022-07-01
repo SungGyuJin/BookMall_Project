@@ -180,13 +180,14 @@
 		let bookDiscount = '<c:out value="${goodsInfo.bookDiscount}"/>' * 100;
 		$("#discount_interface").attr("value", bookDiscount);
 		
-		// 출판일 재설정
+		/* 출판일 값 가공(oracle)
 		let publeYear = '${goodsInfo.publeYear}';
 		let length = publeYear.indexOf(" ");
 		
 		publeYear = publeYear.substring(0, length);
 		
 		$("input[name='publeYear']").attr("value", publeYear);
+		*/
 		
 		// 책 소개
 		ClassicEditor

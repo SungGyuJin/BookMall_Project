@@ -1,5 +1,7 @@
 package com.vam.mapper;
 
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +9,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.vam.model.AuthorVO;
+import com.vam.model.Criteria;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("file:src/main/webapp/WEB-INF/spring/root-context.xml")
@@ -42,12 +45,12 @@ public class AuthorMapperTests {
 //			System.out.println("list" + i + "........." + list.get(i));
 //		}
 //	}
-	
+	// 작가 총 수
 //	@Test
 //	public void authorGetTotalTest() throws Exception{
 //		
 //		Criteria cri = new Criteria();
-//		cri.setKeyword("유홍준");
+//		cri.setKeyword("테스트");
 //		
 //		int total = mapper.authorGetTotal(cri);
 //		
@@ -81,17 +84,17 @@ public class AuthorMapperTests {
 //	}
 	
 	// 작가정보삭제
-	@Test
-	public void	authorDeleteTest() {
-		
-		int authorId = 3;
-		
-		int result = mapper.authorDelete(authorId);
-		
-		if(result == 1) {
-			System.out.println("삭제완료.");
-		}
-	}
+//	@Test
+//	public void	authorDeleteTest() {
+//		
+//		int authorId = 3;
+//		
+//		int result = mapper.authorDelete(authorId);
+//		
+//		if(result == 1) {
+//			System.out.println("삭제완료.");
+//		}
+//	}
 	
 	
 	

@@ -156,7 +156,7 @@ public class AdminMapperTests {
 		List<AttachImageVO> list = mapper.getAttachInfo(bookId);
 		
 		System.out.println("list : " + list);
-		
+	
 	}
 	
 	

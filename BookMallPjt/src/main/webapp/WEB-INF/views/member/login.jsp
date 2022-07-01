@@ -21,7 +21,7 @@
 				<div class="login_wrap">
 					<div class="id_wrap">
 							<div class="id_input_box">
-								<input class="id_input" name="memberId" value="admin"/>
+								<input class="id_input" name="memberId" value="test3"/>
 							</div>
 					</div>
 					<div class="pw_wrap">

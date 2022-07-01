@@ -1,4 +1,4 @@
-package com.vam.persistence;
+package com.vam.controller;
 
 import static org.junit.Assert.fail;
 
@@ -12,7 +12,7 @@ public class JDBCTest {
 	static {
 		
 		try {
-			Class.forName("oracle.jdbc.driver.OracleDriver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 			
 		}catch(Exception e) {
 			e.getMessage();
@@ -23,9 +23,9 @@ public class JDBCTest {
 	public void testConnection() {
 		
 		try(Connection con = DriverManager.getConnection(
-				"jdbc:oracle:thin:@localhost:1521:xe",
-				"system",
-				"1234")){
+				"jdbc:mysql://localhost:3306/mysql?serverTimezone=Asia/Seoul",
+				"root",
+				"7007")){
 			System.out.println(con);
 		}catch(Exception e) {
 			fail(e.getMessage());

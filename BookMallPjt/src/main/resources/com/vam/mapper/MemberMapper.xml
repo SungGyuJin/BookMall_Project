@@ -4,6 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.vam.mapper.MemberMapper">
 	
+	<!-- my -->
 	<insert id="memberJoin">
 		Insert into book_member values(
 			#{memberId}
@@ -14,12 +15,13 @@
 			, #{memberAddr2}
 			, #{memberAddr3}
 			, 0
-			, sysdate
+			, sysdate()
 			, 100000
 			, 5000
 		)
 	</insert>
 	
+	<!-- my -->
 	<select id="idCheck" resultType="int">
 		Select count(*) From book_member where memberId = #{memberId}
 	</select>

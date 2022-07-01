@@ -3,12 +3,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.vam.mapper.AdminMapper">
 
-	<!-- 작가 등록 -->
+	<!-- 작가 등록 mysql -->
   	<insert id="bookEnroll">
   	
   		<selectKey resultType="int" keyProperty="bookId" order="AFTER">
   			
-			SELECT "SYSTEM"."ISEQ$$_115969".currval FROM dual
+			SELECT LAST_INSERT_ID()
 					
   		</selectKey>
   	 
@@ -24,43 +24,32 @@
 		
 	</select>	
 	
-	<!-- 상품 리스트 --> 
+	<!-- 상품 리스트 mysql--> 
   	<select id="goodsGetList" resultType="com.vam.model.BookVO">
+	
+		select  bookId, bookName,  b.authorName, c.cateName, bookStock, a.regDate
+		from vam_book a 
+		left outer join vam_author b on a.authorId = b.authorId
+		left outer join vam_bcate c on a.cateCode = c.cateCode
+		<if test="keyword != null">
+			where (bookName like concat ('%', #{keyword}, '%'))
+		</if>
+		order by bookId desc 
+		limit #{skip}, #{amount}		
+	
+	</select>
   	
-	  	<![CDATA[
-		select * from(
-		    select /*+INDEX_DESC(vam_book SYS_C0030086)*/ rownum as rn, bookId, bookName,
-		        (select authorName from vam_author where vam_book.authorId = vam_author.authorId) authorName,
-		        (select cateName from vam_bcate where vam_book.cateCode = vam_bcate.cateCode) cateName,bookStock,regDate
-		    from vam_book 
-		    where 
-		]]>    
-		
-		    <if test="keyword != null">
-		    
-			    bookName like '%' || #{keyword} || '%' and
-			    
-		    </if>
-		     
-		<![CDATA[    
-		    rownum <= #{pageNum} * #{amount} 
-		    )
-		where rn > (#{pageNum} -1) * #{amount}		  	
-  		]]>
-  	 
-  	</select>
-  	
-  	<!-- 상품 총 개수 -->
+  	<!-- 상품 총 개수 mysql -->
   	<select id="goodsGetTotal" resultType="int">
   	
   		select count(*) from vam_book
   		
   		<if test="keyword != null">
   		
-  			where bookName like '%' || #{keyword} || '%'
-  			
-  		</if>
+  			where bookName like concat('%' , #{keyword}, '%')
   		
+  		</if>
+  	
   	</select> 
   	
 	<!-- 상품 조회 페이지 --> 
@@ -72,8 +61,7 @@
 	
 	</select>
 	
-	
-	<!-- 상품 정보 수정 -->
+	<!-- 상품 정보 수정 mysql -->
 	<update id="goodsModify">
 		
 		Update vam_book set 
@@ -87,7 +75,7 @@
 			, bookDiscount = #{bookDiscount}
 			, bookIntro = #{bookIntro}
 			, bookContents = #{bookContents}
-			, updateDate = sysdate
+			, updateDate = sysdate()
 		Where bookId = ${bookId}
 		
 	</update>
@@ -112,10 +100,10 @@
 		
 	</delete>
 	
-	<!-- 어제자 날짜 이미지 리스트 -->
+	<!-- 어제자 날짜 이미지 리스트 mysql -->
 	<select id="checkFileList" resultType="com.vam.model.AttachImageVO">
 	
-		Select * From vam_image where uploadpath = to_char(sysdate -1, 'yyyy\mm\dd')
+		Select * From vam_image where uploadpath = DATE_FORMAT(DATE_ADD(NOW(), INTERVAL -1 DAY), '%Y\%M\%d')
 	
 	</select>
 	
