@@ -17,7 +17,6 @@ public class LoginInterceptor implements HandlerInterceptor{
 		
 		session.invalidate();
 		
-		
 		return true;
 	}
 }
